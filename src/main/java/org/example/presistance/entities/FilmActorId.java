@@ -9,7 +9,7 @@ import java.util.Objects;
 
 @Embeddable
 public class FilmActorId implements Serializable {
-    private static final long serialVersionUID = -8281179376941939491L;
+    private static final long serialVersionUID = 188796119469605596L;
     @Column(name = "actor_id", columnDefinition = "SMALLINT UNSIGNED not null")
     private Integer actorId;
 
