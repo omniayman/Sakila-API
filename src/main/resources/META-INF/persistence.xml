@@ -4,13 +4,10 @@
     https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd" 
     version="3.0">
 
-    <persistence-unit name="roseBloom" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="sakila" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <properties>
-        <!-- <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>
-        <property name="jakarta.persistence.schema-generation.scripts.action" value="drop-and-create"/>
-        <property name="jakarta.persistence.schema-generation.scripts.create-target" value="eCommercePU-CREATE.ddl"/>
-        <property name="jakarta.persistence.schema-generation.scripts.drop-target" value="eCommercePU-DROP.ddl"/> -->
+
         <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sakila"/>
         <property name="jakarta.persistence.jdbc.user" value="root"/>
         <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
