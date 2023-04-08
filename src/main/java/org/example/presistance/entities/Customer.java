@@ -46,6 +46,9 @@ public class Customer {
     @OneToMany(mappedBy = "customer")
     private Set<Rental> rentals = new LinkedHashSet<>();
 
+    public Customer() {
+    }
+
     public Integer getId() {
         return id;
     }
@@ -132,6 +135,13 @@ public class Customer {
 
     public void setRentals(Set<Rental> rentals) {
         this.rentals = rentals;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer [id=" + id + ", store=" + store + ", firstName=" + firstName + ", lastName=" + lastName
+                + ", email=" + email + ", address=" + address + ", active=" + active + ", createDate=" + createDate
+                + ", lastUpdate=" + lastUpdate + ", payments=" + payments + ", rentals=" + rentals + "]";
     }
 
 }

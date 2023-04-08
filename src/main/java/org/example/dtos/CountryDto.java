@@ -1,29 +1,25 @@
 package org.example.dtos;
 
-import org.example.presistance.entities.City;
+import org.example.presistance.entities.Country;
 
 import java.io.Serializable;
-
+import java.time.Instant;
 import java.util.Date;
 import java.util.Objects;
 
-
-
 /**
- * A DTO for the {@link City} entity
+ * A DTO for the {@link Country} entity
  */
-public class CityDto implements Serializable {
+public class CountryDto implements Serializable {
     private  Integer id;
-    private  String city;
-    private  CountryDto country;
+    private  String country;
     private  Date lastUpdate;
 
-    public CityDto() {
+    public CountryDto() {
     }
 
-    public CityDto(Integer id, String city, CountryDto country, Date lastUpdate) {
+    public CountryDto(Integer id, String country, Date lastUpdate) {
         this.id = id;
-        this.city = city;
         this.country = country;
         this.lastUpdate = lastUpdate;
     }
@@ -32,11 +28,7 @@ public class CityDto implements Serializable {
         return id;
     }
 
-    public String getCity() {
-        return city;
-    }
-
-    public CountryDto getCountry() {
+    public String getCountry() {
         return country;
     }
 
@@ -48,23 +40,21 @@ public class CityDto implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CityDto entity = (CityDto) o;
+        CountryDto entity = (CountryDto) o;
         return Objects.equals(this.id, entity.id) &&
-                Objects.equals(this.city, entity.city) &&
                 Objects.equals(this.country, entity.country) &&
                 Objects.equals(this.lastUpdate, entity.lastUpdate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, city, country, lastUpdate);
+        return Objects.hash(id, country, lastUpdate);
     }
 
     @Override
     public String toString() {
         return getClass().getSimpleName() + "(" +
                 "id = " + id + ", " +
-                "city = " + city + ", " +
                 "country = " + country + ", " +
                 "lastUpdate = " + lastUpdate + ")";
     }
@@ -73,11 +63,7 @@ public class CityDto implements Serializable {
         this.id = id;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public void setCountry(CountryDto country) {
+    public void setCountry(String country) {
         this.country = country;
     }
 

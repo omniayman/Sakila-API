@@ -12,6 +12,9 @@ import java.util.List;
 
 public abstract class Crud <T,ID>{
     EntityManager entityManager = EntityManagerFactoryProvider.getInstance().createEntityManager();
+    public EntityManager getEntityManager() {
+        return entityManager;
+    }
     public List<T> findAll(){
         try {
             CriteriaBuilder builder = entityManager.getCriteriaBuilder();

@@ -6,7 +6,10 @@ import org.example.presistance.daos.impl.CustomerDaoImpl;
 import org.example.presistance.entities.Customer;
 import org.mapstruct.factory.Mappers;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class CustomerService {
@@ -35,9 +38,14 @@ public class CustomerService {
     }
     public void updateCustomer(CustomerDto customerDto) {
         Customer customer=mapper.toEntity(customerDto);
+        System.out.println(customer);
         customerDao.update(customer);
     }
     public void addCustomer(CustomerDto customerDto) {
+        LocalDate localDate =   LocalDate.now();
+        ZoneId defaultZoneId = ZoneId.systemDefault();
+        customerDto.setCreateDate(Date.from(localDate.atStartOfDay(defaultZoneId).toInstant()));
+        customerDto.setLastUpdate(Date.from(localDate.atStartOfDay(defaultZoneId).toInstant()));
         Customer customer=mapper.toEntity(customerDto);
         customerDao.add(customer);
     }

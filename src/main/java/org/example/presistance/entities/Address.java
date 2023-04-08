@@ -44,6 +44,10 @@ public class Address {
     @OneToMany(mappedBy = "address")
     private Set<Customer> customers = new LinkedHashSet<>();
 
+    public Address() {
+    }
+
+
     public Integer getId() {
         return id;
     }

@@ -1,35 +1,38 @@
 package org.example.dtos;
 
+
 import org.example.presistance.entities.Customer;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.Date;
 import java.util.Objects;
 import java.util.Set;
 
 /**
  * A DTO for the {@link Customer} entity
  */
+
 public class CustomerDto implements Serializable {
-    private final Integer id;
-//    private final InventoryDto.StoreDto store;
-    private final String firstName;
-    private final String lastName;
-    private final String email;
-//    private final AddressDto address;
-    private final Boolean active;
-    private final Instant createDate;
-    private final Instant lastUpdate;
+    private  Integer id;
+    private StoreDto store;
+    private  String firstName;
+    private  String lastName;
+    private  String email;
+    private  AddressDto address;
+    private  Boolean active;
+    private  Date createDate;
+    private  Date lastUpdate;
 //    private final Set<AddressDto.PaymentDto> payments;
 //    private final Set<InventoryDto.RentalDto> rentals;
 
-    public CustomerDto(Integer id,  String firstName, String lastName, String email, Boolean active, Instant createDate, Instant lastUpdate) {
+    public CustomerDto(Integer id,  String firstName, String lastName, String email, Boolean active, AddressDto address,Date createDate, Date lastUpdate,StoreDto store) {
         this.id = id;
-//        this.store = store;
+        this.store = store;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-//        this.address = address;
+       this.address = address;
         this.active = active;
         this.createDate = createDate;
         this.lastUpdate = lastUpdate;
@@ -37,13 +40,16 @@ public class CustomerDto implements Serializable {
 //        this.rentals = rentals;
     }
 
+    public CustomerDto() {
+    }
+
     public Integer getId() {
         return id;
     }
 
-//    public InventoryDto.StoreDto getStore() {
-//        return store;
-//    }
+   public StoreDto getStore() {
+       return store;
+   }
 
     public String getFirstName() {
         return firstName;
@@ -57,19 +63,19 @@ public class CustomerDto implements Serializable {
         return email;
     }
 
-//    public AddressDto getAddress() {
-//        return address;
-//    }
+   public AddressDto getAddress() {
+       return address;
+   }
 
     public Boolean getActive() {
         return active;
     }
 
-    public Instant getCreateDate() {
+    public Date getCreateDate() {
         return createDate;
     }
 
-    public Instant getLastUpdate() {
+    public Date getLastUpdate() {
         return lastUpdate;
     }
 
@@ -115,8 +121,44 @@ public class CustomerDto implements Serializable {
 //                "address = " + address + ", " +
                 "active = " + active + ", " +
                 "createDate = " + createDate + ", " +
-                "lastUpdate = " + lastUpdate + ", " ;
+                "lastUpdate = " + lastUpdate  + ")";
 //                "payments = " + payments + ", " +
 //                "rentals = " + rentals + ")";
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public void setLastUpdate(Date lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
+
+    public void setAddress(AddressDto address) {
+        this.address = address;
+    }
+
+    public void setStore(StoreDto store) {
+        this.store = store;
     }
 }
