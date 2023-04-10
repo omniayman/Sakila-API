@@ -1,9 +1,14 @@
 package org.example.services;
 
-import org.example.Mappers.CustomerMapper;
-import org.example.dtos.CustomerDto;
+import org.example.Mappers.*;
+import org.example.dtos.AddressDto;
+import org.example.dtos.PaymentDto;
+import org.example.dtos.RentalDto;
+import org.example.dtos.StoreDto;
+import org.example.dtos.customer.CustomerDto;
+import org.example.dtos.customer.CustomerEditDto;
 import org.example.presistance.daos.impl.CustomerDaoImpl;
-import org.example.presistance.entities.Customer;
+import org.example.presistance.entities.*;
 import org.mapstruct.factory.Mappers;
 
 import java.time.LocalDate;
@@ -36,12 +41,17 @@ public class CustomerService {
     public void deleteCustomer(int id) {
         customerDao.delete(id,Customer.class);
     }
-    public void updateCustomer(CustomerDto customerDto) {
+    public void updateCustomer(CustomerEditDto customerDto) {
+
+        CustomerEditMapper mapper=Mappers.getMapper(CustomerEditMapper.class);
+        LocalDate localDate =   LocalDate.now();
+        ZoneId defaultZoneId = ZoneId.systemDefault();
+        customerDto.setLastUpdate(Date.from(localDate.atStartOfDay(defaultZoneId).toInstant()));
         Customer customer=mapper.toEntity(customerDto);
-        System.out.println(customer);
         customerDao.update(customer);
     }
-    public void addCustomer(CustomerDto customerDto) {
+    public void addCustomer(CustomerEditDto customerDto) {
+         CustomerEditMapper mapper=Mappers.getMapper(CustomerEditMapper.class);
         LocalDate localDate =   LocalDate.now();
         ZoneId defaultZoneId = ZoneId.systemDefault();
         customerDto.setCreateDate(Date.from(localDate.atStartOfDay(defaultZoneId).toInstant()));
@@ -49,4 +59,38 @@ public class CustomerService {
         Customer customer=mapper.toEntity(customerDto);
         customerDao.add(customer);
     }
+    public StoreDto getCustomerHomeStore(int id) {
+        StoreMapper storeMapper=Mappers.getMapper(StoreMapper.class);
+        Store store=customerDao.getCustomerHomeStore(id);
+
+
+        return storeMapper.toDto(store);
+    }
+    public AddressDto getCustomerAddress(int id) {
+
+        AddressMapper addressMapper = Mappers.getMapper(AddressMapper.class);
+        Address address=customerDao.getCustomerAddress(id);
+        return addressMapper.toDto(address);
+    }
+    public List<RentalDto>  getCustomerRents(int id){
+        RentalMapper rentalMapper=Mappers.getMapper(RentalMapper.class);
+        List<Rental> rentals=customerDao.getCustomerRentals(id);
+        List<RentalDto> rentalDtos=new ArrayList<>();
+        for (Rental r: rentals
+             ) {
+            rentalDtos.add(rentalMapper.toDto(r));
+        }
+        return  rentalDtos;
+    }
+    public List<PaymentDto>  getCustomerPayments(int id){
+        PaymentMapper paymentMapper=Mappers.getMapper(PaymentMapper.class);
+        List<Payment> Payments=customerDao.getCustomerPayments(id);
+        List<PaymentDto> paymentDtos=new ArrayList<>();
+        for (Payment r: Payments
+        ) {
+            paymentDtos.add(paymentMapper.toDto(r));
+        }
+        return  paymentDtos;
+    }
+
 }

@@ -1,5 +1,6 @@
 package org.example.presistance.entities;
 
+
 import jakarta.persistence.*;
 
 import java.time.Instant;
@@ -23,6 +24,7 @@ public class Rental {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "customer_id", nullable = false)
+
     private Customer customer;
 
     @Column(name = "return_date")

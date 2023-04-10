@@ -1,55 +1,53 @@
-package org.example.dtos;
+package org.example.dtos.customer;
 
 
+import org.example.dtos.AddressDto;
+import org.example.dtos.StoreDto;
 import org.example.presistance.entities.Customer;
-
 import java.io.Serializable;
-import java.time.Instant;
 import java.util.Date;
 import java.util.Objects;
-import java.util.Set;
 
 /**
  * A DTO for the {@link Customer} entity
  */
 
-public class CustomerDto implements Serializable {
+public class CustomerEditDto implements Serializable {
     private  Integer id;
     private StoreDto store;
     private  String firstName;
     private  String lastName;
     private  String email;
-    private  AddressDto address;
+    private AddressDto address;
     private  Boolean active;
     private  Date createDate;
     private  Date lastUpdate;
-//    private final Set<AddressDto.PaymentDto> payments;
-//    private final Set<InventoryDto.RentalDto> rentals;
 
-    public CustomerDto(Integer id,  String firstName, String lastName, String email, Boolean active, AddressDto address,Date createDate, Date lastUpdate,StoreDto store) {
+
+
+    public CustomerEditDto(Integer id,  String firstName, String lastName, String email, Boolean active, AddressDto address,Date createDate, Date lastUpdate,StoreDto store) {
         this.id = id;
         this.store = store;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-       this.address = address;
+        this.address = address;
         this.active = active;
         this.createDate = createDate;
         this.lastUpdate = lastUpdate;
-//        this.payments = payments;
-//        this.rentals = rentals;
+
     }
 
-    public CustomerDto() {
+    public CustomerEditDto() {
     }
 
     public Integer getId() {
         return id;
     }
 
-   public StoreDto getStore() {
-       return store;
-   }
+    public StoreDto getStore() {
+        return store;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -63,9 +61,9 @@ public class CustomerDto implements Serializable {
         return email;
     }
 
-   public AddressDto getAddress() {
-       return address;
-   }
+    public AddressDto getAddress() {
+        return address;
+    }
 
     public Boolean getActive() {
         return active;
@@ -79,30 +77,22 @@ public class CustomerDto implements Serializable {
         return lastUpdate;
     }
 
-//    public Set<AddressDto.PaymentDto> getPayments() {
-//        return payments;
-//    }
-//
-//    public Set<InventoryDto.RentalDto> getRentals() {
-//        return rentals;
-//    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CustomerDto entity = (CustomerDto) o;
+        CustomerEditDto entity = (CustomerEditDto) o;
         return Objects.equals(this.id, entity.id) &&
-//                Objects.equals(this.store, entity.store) &&
+                Objects.equals(this.store, entity.store) &&
                 Objects.equals(this.firstName, entity.firstName) &&
                 Objects.equals(this.lastName, entity.lastName) &&
                 Objects.equals(this.email, entity.email) &&
-//                Objects.equals(this.address, entity.address) &&
+                Objects.equals(this.address, entity.address) &&
                 Objects.equals(this.active, entity.active) &&
                 Objects.equals(this.createDate, entity.createDate) &&
-                Objects.equals(this.lastUpdate, entity.lastUpdate) ;
-//                Objects.equals(this.payments, entity.payments) &&
-//                Objects.equals(this.rentals, entity.rentals);
+                Objects.equals(this.lastUpdate, entity.lastUpdate);
+
     }
 
     @Override
@@ -114,16 +104,15 @@ public class CustomerDto implements Serializable {
     public String toString() {
         return getClass().getSimpleName() + "(" +
                 "id = " + id + ", " +
-//                "store = " + store + ", " +
+                "store = " + store + ", " +
                 "firstName = " + firstName + ", " +
                 "lastName = " + lastName + ", " +
                 "email = " + email + ", " +
-//                "address = " + address + ", " +
+                "address = " + address + ", " +
                 "active = " + active + ", " +
                 "createDate = " + createDate + ", " +
-                "lastUpdate = " + lastUpdate  + ")";
-//                "payments = " + payments + ", " +
-//                "rentals = " + rentals + ")";
+                "lastUpdate = " + lastUpdate  + ") " ;
+
     }
 
     public void setId(Integer id) {
@@ -161,4 +150,6 @@ public class CustomerDto implements Serializable {
     public void setStore(StoreDto store) {
         this.store = store;
     }
+
+
 }

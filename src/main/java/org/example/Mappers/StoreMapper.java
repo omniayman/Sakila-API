@@ -11,4 +11,6 @@ public interface StoreMapper {
     StoreDto toDto(Store store);
 
 
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    Store partialUpdate(StoreDto storeDto, @MappingTarget Store store);
 }

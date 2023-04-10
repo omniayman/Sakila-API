@@ -1,5 +1,6 @@
 package org.example.presistance.entities;
 
+
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -15,10 +16,11 @@ public class Payment {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "customer_id", nullable = false)
+
     private Customer customer;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "staff_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "staff_id")
     private Staff staff;
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -1,5 +1,6 @@
 package org.example.presistance.entities;
 
+
 import jakarta.persistence.*;
 
 import java.time.Instant;
@@ -40,10 +41,12 @@ public class Customer {
     @Column(name = "last_update")
     private Instant lastUpdate;
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customer",fetch = FetchType.LAZY)
+   
     private Set<Payment> payments = new LinkedHashSet<>();
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customer",fetch = FetchType.LAZY)
+
     private Set<Rental> rentals = new LinkedHashSet<>();
 
     public Customer() {
