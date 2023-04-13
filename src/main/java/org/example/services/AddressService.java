@@ -13,7 +13,10 @@ import org.example.presistance.entities.Staff;
 import org.example.presistance.entities.Store;
 import org.mapstruct.factory.Mappers;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class AddressService {
@@ -78,6 +81,9 @@ public class AddressService {
 
     public void updateAddress(AddressEditDto addressDto) {
         AddressEditMapper addressMapper = Mappers.getMapper(AddressEditMapper.class);
+        LocalDate localDate = LocalDate.now();
+        ZoneId defaultZoneId = ZoneId.systemDefault();
+        addressDto.setLastUpdate(Date.from(localDate.atStartOfDay(defaultZoneId).toInstant()).toInstant());
         Address address = addressMapper.toEntity(addressDto);
         addressDao.update(address);
     }

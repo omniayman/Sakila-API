@@ -4,8 +4,8 @@ Content-Type: text/xml
 
 <soap:Envelope
     xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-    xmlns:jets="http://webServices.soap.api.example.org/"
-    xmlns:tns="http://webServices.soap.api.example.org/"
+    xmlns:jets="http://webServices.example.org/"
+    xmlns:tns="http://webServices.example.org/"
 >
     <soap:Body>
         <jets:getCustomerById>
@@ -21,8 +21,8 @@ Content-Type: text/xml
 
 <soap:Envelope
     xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-    xmlns:jets="http://webServices.soap.api.example.org/"
-    xmlns:tns="http://webServices.soap.api.example.org/"
+    xmlns:jets="http://webServices.example.org/"
+    xmlns:tns="http://webServices.example.org/"
 >
     <soap:Body>
         <jets:getAll>
@@ -37,8 +37,8 @@ Content-Type: text/xml
 
 <soap:Envelope
     xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-    xmlns:jets="http://webServices.soap.api.example.org/"
-    xmlns:tns="http://webServices.soap.api.example.org/"
+    xmlns:jets="http://webServices.example.org/"
+    xmlns:tns="http://webServices.example.org/"
 >
     <soap:Body>
         <jets:add>
@@ -75,8 +75,8 @@ Content-Type: text/xml
 
 <soap:Envelope
     xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-    xmlns:jets="http://webServices.soap.api.example.org/"
-    xmlns:tns="http://webServices.soap.api.example.org/"
+    xmlns:jets="http://webServices.example.org/"
+    xmlns:tns="http://webServices.example.org/"
 >
     <soap:Body>
         <jets:update>
@@ -114,8 +114,8 @@ Content-Type: text/xml
 
 <soap:Envelope
     xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-    xmlns:jets="http://webServices.soap.api.example.org/"
-    xmlns:tns="http://webServices.soap.api.example.org/"
+    xmlns:jets="http://webServices.example.org/"
+    xmlns:tns="http://webServices.example.org/"
 >
     <soap:Body>
         <jets:getHomeStore>
@@ -133,8 +133,8 @@ Content-Type: text/xml
 
 <soap:Envelope
     xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-    xmlns:jets="http://webServices.soap.api.example.org/"
-    xmlns:tns="http://webServices.soap.api.example.org/"
+    xmlns:jets="http://webServices.example.org/"
+    xmlns:tns="http://webServices.example.org/"
 >
     <soap:Body>
         <jets:getCustomerAddress>
@@ -152,8 +152,8 @@ Content-Type: text/xml
 
 <soap:Envelope
     xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-    xmlns:jets="http://webServices.soap.api.example.org/"
-    xmlns:tns="http://webServices.soap.api.example.org/"
+    xmlns:jets="http://webServices.example.org/"
+    xmlns:tns="http://webServices.example.org/"
 >
     <soap:Body>
         <jets:getCustomerRents>
@@ -170,8 +170,8 @@ Content-Type: text/xml
 
 <soap:Envelope
     xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-    xmlns:jets="http://webServices.soap.api.example.org/"
-    xmlns:tns="http://webServices.soap.api.example.org/"
+    xmlns:jets="http://webServices.example.org/"
+    xmlns:tns="http://webServices.example.org/"
 >
     <soap:Body>
         <jets:getCustomerPayments>

@@ -5,8 +5,8 @@ Content-Type: text/xml
 
 <soap:Envelope
     xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-    xmlns:jets="http://webServices.soap.api.example.org/"
-    xmlns:tns="http://webServices.soap.api.example.org/"
+    xmlns:jets="http://webServices.example.org/"
+    xmlns:tns="http://webServices.example.org/"
 >
     <soap:Body>
         <jets:getAddressById>
@@ -22,8 +22,8 @@ Content-Type: text/xml
 
 <soap:Envelope
     xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-    xmlns:jets="http://webServices.soap.api.example.org/"
-    xmlns:tns="http://webServices.soap.api.example.org/"
+    xmlns:jets="http://webServices.example.org/"
+    xmlns:tns="http://webServices.example.org/"
 >
     <soap:Body>
         <jets:getAll>
@@ -40,8 +40,8 @@ Content-Type: text/xml
 
 <soap:Envelope
     xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-    xmlns:jets="http://webServices.soap.api.example.org/"
-    xmlns:tns="http://webServices.soap.api.example.org/"
+    xmlns:jets="http://webServices.example.org/"
+    xmlns:tns="http://webServices.example.org/"
 >
     <soap:Body>
         <jets:getCustomerByAddress>
@@ -57,8 +57,8 @@ Content-Type: text/xml
 
 <soap:Envelope
     xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-    xmlns:jets="http://webServices.soap.api.example.org/"
-    xmlns:tns="http://webServices.soap.api.example.org/"
+    xmlns:jets="http://webServices.example.org/"
+    xmlns:tns="http://webServices.example.org/"
 >
     <soap:Body>
         <jets:getStaffByAddress>
@@ -74,8 +74,8 @@ Content-Type: text/xml
 
 <soap:Envelope
     xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-    xmlns:jets="http://webServices.soap.api.example.org/"
-    xmlns:tns="http://webServices.soap.api.example.org/"
+    xmlns:jets="http://webServices.example.org/"
+    xmlns:tns="http://webServices.example.org/"
 >
     <soap:Body>
         <jets:getStoreByAddress>
@@ -91,8 +91,8 @@ Content-Type: text/xml
 
 <soap:Envelope
     xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-    xmlns:jets="http://webServices.soap.api.example.org/"
-    xmlns:tns="http://webServices.soap.api.example.org/"
+    xmlns:jets="http://webServices.example.org/"
+    xmlns:tns="http://webServices.example.org/"
 >
     <soap:Body>
         <jets:addAddress>
@@ -119,13 +119,13 @@ Content-Type: text/xml
 
 <soap:Envelope
     xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-    xmlns:jets="http://webServices.soap.api.example.org/"
-    xmlns:tns="http://webServices.soap.api.example.org/"
+    xmlns:jets="http://webServices.example.org/"
+    xmlns:tns="http://webServices.example.org/"
 >
     <soap:Body>
         <jets:updateAddress>
             <arg0>
-                 <address>47 MySakila Drive</address>
+                 <address>47 salem </address>
         <district>Alberta</district>
         <id>1</id>
       

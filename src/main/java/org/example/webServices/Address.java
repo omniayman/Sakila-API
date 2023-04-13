@@ -55,9 +55,5 @@ public class Address {
     }
 
 
-    public void delete(int id) {
-        AddressService addressService = new AddressService();
 
-        addressService.deleteAddress(id);
-    }
 }
