@@ -1,11 +1,8 @@
 package org.example.dtos;
 
 import java.io.Serializable;
-import java.time.Instant;
 import java.util.Date;
-import java.util.LinkedHashSet;
 import java.util.Objects;
-import java.util.Set;
 
 /**
  * A DTO for the {@link org.example.presistance.entities.Rental} entity
@@ -13,10 +10,10 @@ import java.util.Set;
 public class RentalDto implements Serializable {
     private Integer id;
     private Date rentalDate;
-   // private CustomerDto customer;
+    // private CustomerDto customer;
     private Date returnDate;
     private Date lastUpdate;
-   // private Set<PaymentDto> payments = new LinkedHashSet<>();
+    // private Set<PaymentDto> payments = new LinkedHashSet<>();
 
     public RentalDto() {
     }
@@ -24,7 +21,7 @@ public class RentalDto implements Serializable {
     public RentalDto(Integer id, Date rentalDate, Date returnDate, Date lastUpdate) {
         this.id = id;
         this.rentalDate = rentalDate;
-      //  this.customer = customer;
+        //  this.customer = customer;
         this.returnDate = returnDate;
         this.lastUpdate = lastUpdate;
         //this.payments = payments;
@@ -93,8 +90,8 @@ public class RentalDto implements Serializable {
                 Objects.equals(this.rentalDate, entity.rentalDate) &&
                 // Objects.equals(this.customer, entity.customer) &&
                 Objects.equals(this.returnDate, entity.returnDate) &&
-                Objects.equals(this.lastUpdate, entity.lastUpdate) ;
-                // Objects.equals(this.payments, entity.payments);
+                Objects.equals(this.lastUpdate, entity.lastUpdate);
+        // Objects.equals(this.payments, entity.payments);
     }
 
     @Override
@@ -109,7 +106,7 @@ public class RentalDto implements Serializable {
                 "rentalDate = " + rentalDate + ", " +
                 // "customer = " + customer + ", " +
                 "returnDate = " + returnDate + ", " +
-                "lastUpdate = " + lastUpdate + ")" ;
-                // "payments = " + payments + ")";
+                "lastUpdate = " + lastUpdate + ")";
+        // "payments = " + payments + ")";
     }
 }

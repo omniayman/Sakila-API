@@ -3,7 +3,6 @@ package org.example.dtos;
 import org.example.presistance.entities.Country;
 
 import java.io.Serializable;
-import java.time.Instant;
 import java.util.Date;
 import java.util.Objects;
 
@@ -11,9 +10,9 @@ import java.util.Objects;
  * A DTO for the {@link Country} entity
  */
 public class CountryDto implements Serializable {
-    private  Integer id;
-    private  String country;
-    private  Date lastUpdate;
+    private Integer id;
+    private String country;
+    private Date lastUpdate;
 
     public CountryDto() {
     }
@@ -28,12 +27,24 @@ public class CountryDto implements Serializable {
         return id;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getCountry() {
         return country;
     }
 
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
     public Date getLastUpdate() {
         return lastUpdate;
+    }
+
+    public void setLastUpdate(Date lastUpdate) {
+        this.lastUpdate = lastUpdate;
     }
 
     @Override
@@ -57,17 +68,5 @@ public class CountryDto implements Serializable {
                 "id = " + id + ", " +
                 "country = " + country + ", " +
                 "lastUpdate = " + lastUpdate + ")";
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public void setLastUpdate(Date lastUpdate) {
-        this.lastUpdate = lastUpdate;
     }
 }

@@ -13,8 +13,8 @@ import java.util.Objects;
  */
 public class PaymentDto implements Serializable {
     private Integer id;
-   
-   private CustomerDto customer;
+
+    private CustomerDto customer;
     // private RentalDto rental;
     private BigDecimal amount;
     private Date paymentDate;

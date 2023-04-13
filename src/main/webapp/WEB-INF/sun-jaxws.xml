@@ -2,11 +2,15 @@
 
 <endpoints xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime" version="2.0">
 
-    
+
     <endpoint
-        name="CustomerWebService"
-        implementation="org.example.api.soap.webServices.Customer"
-        url-pattern="/ws/customer" />
+            name="CustomerWebService"
+            implementation="org.example.api.soap.webServices.Customer"
+            url-pattern="/ws/customer"/>
+    <endpoint
+            name="AddressWebService"
+            implementation="org.example.api.soap.webServices.Address"
+            url-pattern="/ws/address"/>
 
 
 </endpoints>

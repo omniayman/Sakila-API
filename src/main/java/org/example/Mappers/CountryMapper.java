@@ -7,5 +7,6 @@ import org.mapstruct.Mapper;
 @Mapper
 public interface CountryMapper {
     CountryDto toDto(Country source);
-    Country toEntity(CountryDto destination); 
+
+    Country toEntity(CountryDto destination);
 }

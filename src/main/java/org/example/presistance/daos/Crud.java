@@ -10,12 +10,15 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
 
-public abstract class Crud <T,ID>{
+public abstract class Crud<T, ID> {
     EntityManager entityManager = EntityManagerFactoryProvider.getInstance().createEntityManager();
+
     public EntityManager getEntityManager() {
         return entityManager;
     }
-    public List<T> findAll(){
+
+    public List<T> findAll() {
+
         try {
             CriteriaBuilder builder = entityManager.getCriteriaBuilder();
             CriteriaQuery<T> query = builder.createQuery(getEntityClass());
@@ -26,31 +29,36 @@ public abstract class Crud <T,ID>{
             entityManager.close();
         }
     }
-    public T findById(ID id,Class<T> entityClass){
+
+    public T findById(ID id, Class<T> entityClass) {
 
         T entity = entityManager.find(entityClass, id);
         return entity;
     }
-    public void add(T entity){
+
+    public void add(T entity) {
         entityManager.getTransaction().begin();
         entityManager.persist(entity);
         entityManager.getTransaction().commit();
 
     }
-    public void update(T entity){
+
+    public void update(T entity) {
 
         entityManager.getTransaction().begin();
         entityManager.merge(entity);
         entityManager.getTransaction().commit();
 
     }
-    public void delete(int id,Class<T> entityClass){
+
+    public void delete(int id, Class<T> entityClass) {
         T entity = entityManager.find(entityClass, id);
         entityManager.getTransaction().begin();
         entityManager.remove(entity);
         entityManager.getTransaction().commit();
 
     }
+
     private Class<T> getEntityClass() {
         // Use reflection to get the entity class for the generic type parameter T
         Type type = getClass().getGenericSuperclass();

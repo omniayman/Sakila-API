@@ -3,20 +3,18 @@ package org.example.dtos;
 import org.example.presistance.entities.City;
 
 import java.io.Serializable;
-
 import java.util.Date;
 import java.util.Objects;
-
 
 
 /**
  * A DTO for the {@link City} entity
  */
 public class CityDto implements Serializable {
-    private  Integer id;
-    private  String city;
-    private  CountryDto country;
-    private  Date lastUpdate;
+    private Integer id;
+    private String city;
+    private CountryDto country;
+    private Date lastUpdate;
 
     public CityDto() {
     }
@@ -32,16 +30,32 @@ public class CityDto implements Serializable {
         return id;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getCity() {
         return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public CountryDto getCountry() {
         return country;
     }
 
+    public void setCountry(CountryDto country) {
+        this.country = country;
+    }
+
     public Date getLastUpdate() {
         return lastUpdate;
+    }
+
+    public void setLastUpdate(Date lastUpdate) {
+        this.lastUpdate = lastUpdate;
     }
 
     @Override
@@ -67,21 +81,5 @@ public class CityDto implements Serializable {
                 "city = " + city + ", " +
                 "country = " + country + ", " +
                 "lastUpdate = " + lastUpdate + ")";
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public void setCountry(CountryDto country) {
-        this.country = country;
-    }
-
-    public void setLastUpdate(Date lastUpdate) {
-        this.lastUpdate = lastUpdate;
     }
 }

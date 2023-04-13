@@ -2,7 +2,7 @@ package org.example.Mappers;
 
 import org.example.dtos.StaffDto;
 import org.example.presistance.entities.Staff;
-import org.mapstruct.*;
+import org.mapstruct.Mapper;
 
 @Mapper
 public interface StaffMapper {

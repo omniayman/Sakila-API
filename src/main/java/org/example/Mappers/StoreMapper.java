@@ -2,7 +2,10 @@ package org.example.Mappers;
 
 import org.example.dtos.StoreDto;
 import org.example.presistance.entities.Store;
-import org.mapstruct.*;
+import org.mapstruct.BeanMapping;
+import org.mapstruct.Mapper;
+import org.mapstruct.MappingTarget;
+import org.mapstruct.NullValuePropertyMappingStrategy;
 
 @Mapper
 public interface StoreMapper {

@@ -1,4 +1,4 @@
-package org.example.dtos;
+package org.example.dtos.address;
 
 import org.example.presistance.entities.Address;
 import org.example.presistance.entities.Payment;
@@ -13,24 +13,23 @@ import java.util.Objects;
  * A DTO for the {@link Address} entity
  */
 public class AddressDto implements Serializable {
-    private  Integer id;
-    private  String address;
-    private  String address2;
-    private  String district;
-    private  CityDto city;
-    private  String postalCode;
-    private  String phone;
-    private  Date lastUpdate;
+    private Integer id;
+    private String address;
+    private String address2;
+    private String district;
+
+    private String postalCode;
+    private String phone;
+    private Date lastUpdate;
 
     public AddressDto() {
     }
 
-    public AddressDto(Integer id, String address, String address2, String district, CityDto city, String postalCode, String phone, Date lastUpdate) {
+    public AddressDto(Integer id, String address, String address2, String district, String postalCode, String phone, Date lastUpdate) {
         this.id = id;
         this.address = address;
         this.address2 = address2;
         this.district = district;
-        this.city = city;
         this.postalCode = postalCode;
         this.phone = phone;
         this.lastUpdate = lastUpdate;
@@ -40,32 +39,57 @@ public class AddressDto implements Serializable {
         return id;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getAddress() {
         return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getAddress2() {
         return address2;
     }
 
+    public void setAddress2(String address2) {
+        this.address2 = address2;
+    }
+
     public String getDistrict() {
         return district;
     }
 
-    public CityDto getCity() {
-        return city;
+    public void setDistrict(String district) {
+        this.district = district;
     }
+
 
     public String getPostalCode() {
         return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
     }
 
     public String getPhone() {
         return phone;
     }
 
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     public Date getLastUpdate() {
         return lastUpdate;
+    }
+
+    public void setLastUpdate(Date lastUpdate) {
+        this.lastUpdate = lastUpdate;
     }
 
     @Override
@@ -77,7 +101,7 @@ public class AddressDto implements Serializable {
                 Objects.equals(this.address, entity.address) &&
                 Objects.equals(this.address2, entity.address2) &&
                 Objects.equals(this.district, entity.district) &&
-                Objects.equals(this.city, entity.city) &&
+
                 Objects.equals(this.postalCode, entity.postalCode) &&
                 Objects.equals(this.phone, entity.phone) &&
                 Objects.equals(this.lastUpdate, entity.lastUpdate);
@@ -85,7 +109,7 @@ public class AddressDto implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, address, address2, district, city, postalCode, phone, lastUpdate);
+        return Objects.hash(id, address, address2, district, postalCode, phone, lastUpdate);
     }
 
     @Override
@@ -95,7 +119,7 @@ public class AddressDto implements Serializable {
                 "address = " + address + ", " +
                 "address2 = " + address2 + ", " +
                 "district = " + district + ", " +
-                "city = " + city + ", " +
+
                 "postalCode = " + postalCode + ", " +
                 "phone = " + phone + ", " +
                 "lastUpdate = " + lastUpdate + ")";
@@ -157,37 +181,5 @@ public class AddressDto implements Serializable {
                     "paymentDate = " + paymentDate + ", " +
                     "lastUpdate = " + lastUpdate + ")";
         }
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public void setAddress2(String address2) {
-        this.address2 = address2;
-    }
-
-    public void setDistrict(String district) {
-        this.district = district;
-    }
-
-    public void setCity(CityDto city) {
-        this.city = city;
-    }
-
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public void setLastUpdate(Date lastUpdate) {
-        this.lastUpdate = lastUpdate;
     }
 }

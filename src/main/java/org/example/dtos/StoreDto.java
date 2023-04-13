@@ -1,7 +1,8 @@
 package org.example.dtos;
 
+import org.example.dtos.address.AddressDto;
+
 import java.io.Serializable;
-import java.time.Instant;
 import java.util.Date;
 import java.util.Objects;
 
@@ -9,9 +10,9 @@ import java.util.Objects;
  * A DTO for the {@link org.example.presistance.entities.Store} entity
  */
 public class StoreDto implements Serializable {
-    private  Short id;
-    private  StaffDto managerStaff;
-    private  AddressDto address;
+    private Short id;
+    private StaffDto managerStaff;
+    private AddressDto address;
     private Date lastUpdate;
 
     public StoreDto(Short id, StaffDto managerStaff, AddressDto address, Date lastUpdate) {
@@ -28,16 +29,32 @@ public class StoreDto implements Serializable {
         return id;
     }
 
+    public void setId(Short id) {
+        this.id = id;
+    }
+
     public StaffDto getManagerStaff() {
         return managerStaff;
+    }
+
+    public void setManagerStaff(StaffDto managerStaff) {
+        this.managerStaff = managerStaff;
     }
 
     public AddressDto getAddress() {
         return address;
     }
 
+    public void setAddress(AddressDto address) {
+        this.address = address;
+    }
+
     public Date getLastUpdate() {
         return lastUpdate;
+    }
+
+    public void setLastUpdate(Date lastUpdate) {
+        this.lastUpdate = lastUpdate;
     }
 
     @Override
@@ -63,21 +80,5 @@ public class StoreDto implements Serializable {
                 "managerStaff = " + managerStaff + ", " +
                 "address = " + address + ", " +
                 "lastUpdate = " + lastUpdate + ")";
-    }
-
-    public void setId(Short id) {
-        this.id = id;
-    }
-
-    public void setManagerStaff(StaffDto managerStaff) {
-        this.managerStaff = managerStaff;
-    }
-
-    public void setAddress(AddressDto address) {
-        this.address = address;
-    }
-
-    public void setLastUpdate(Date lastUpdate) {
-        this.lastUpdate = lastUpdate;
     }
 }
