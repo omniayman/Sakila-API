@@ -1,0 +1,65 @@
+POST http://localhost:8090/sakilaApi/ws/customer HTTP/1.1
+        Content-Type: text/xml
+
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://webServices.soap.api.example.org/"
+>
+    <soap:Body>
+        <jets:getCustomerById>
+            <arg0>1</arg0>
+        </jets:getCustomerById>
+    </soap:Body>
+</soap:Envelope>
+
+        ###
+        POST http://localhost:8090/sakilaApi/ws/customer HTTP/1.1
+        Content-Type: text/xml
+
+
+<soap:Envelope
+xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:jets="http://webServices.soap.api.example.org/"
+>
+<soap:Body>
+    <jets:getAll>
+
+    </jets:getAll>
+</soap:Body>
+</soap:Envelope>
+        ###
+        POST http://localhost:8090/sakilaApi/ws/customer HTTP/1.1
+        Content-Type: text/xml
+
+
+<soap:Envelope
+xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:jets="http://webServices.soap.api.example.org/"
+>
+<soap:Body>
+    <jets:add>
+        <arg0>
+
+            <active>true</active>
+            <address>
+
+                <id>5</id>
+
+            </address>
+
+            <email>omniaAyman@sakilacustomer.org</email>
+            <firstName>Omnia Ayman</firstName>
+
+            <lastName>Ayman</lastName>
+
+            <store>
+
+
+                <id>1</id>
+            </store>
+
+        </arg0>
+    </jets:add>
+</soap:Body>
+</soap:Envelope>
