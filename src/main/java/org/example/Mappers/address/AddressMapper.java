@@ -1,6 +1,6 @@
-package org.example.Mappers;
+package org.example.Mappers.address;
 
-import org.example.dtos.address.AddressEditDto;
+import org.example.dtos.address.AddressDto;
 import org.example.presistance.entities.Address;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
@@ -8,11 +8,13 @@ import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 
 @Mapper
-public interface AddressEditMapper {
-    Address toEntity(AddressEditDto addressEditDto);
+public interface AddressMapper {
+    AddressDto toDto(Address source);
 
-    AddressEditDto toDto(Address address);
+    Address toEntity(AddressDto destination);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    Address partialUpdate(AddressEditDto addressEditDto, @MappingTarget Address address);
+    Address partialUpdate(AddressDto addressDto, @MappingTarget Address address);
 }
+
+

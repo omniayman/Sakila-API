@@ -1,6 +1,11 @@
 package org.example.services;
 
-import org.example.Mappers.*;
+import org.example.Mappers.PaymentMapper;
+import org.example.Mappers.RentalMapper;
+import org.example.Mappers.StoreMapper;
+import org.example.Mappers.address.AddressMapper;
+import org.example.Mappers.customer.CustomerEditMapper;
+import org.example.Mappers.customer.CustomerMapper;
 import org.example.dtos.PaymentDto;
 import org.example.dtos.RentalDto;
 import org.example.dtos.StoreDto;
