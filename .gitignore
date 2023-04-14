@@ -1,3 +1,4 @@
 target/
 .idea/
-Sakila-API.iml
+Requests/
+*.iml
