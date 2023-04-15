@@ -19,15 +19,12 @@ public abstract class Crud<T, ID> {
 
     public List<T> findAll() {
 
-        try {
+
             CriteriaBuilder builder = entityManager.getCriteriaBuilder();
             CriteriaQuery<T> query = builder.createQuery(getEntityClass());
             Root<T> root = query.from(getEntityClass());
             query.select(root);
             return entityManager.createQuery(query).getResultList();
-        } finally {
-            entityManager.close();
-        }
     }
 
     public T findById(ID id, Class<T> entityClass) {

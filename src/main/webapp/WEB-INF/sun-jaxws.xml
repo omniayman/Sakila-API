@@ -16,5 +16,9 @@
             name="FilmWebService"
             implementation="org.example.webServices.Film"
             url-pattern="/ws/film"/>
+    <endpoint
+            name="ActorWebService"
+            implementation="org.example.webServices.Actor"
+            url-pattern="/ws/actor"/>
 
 </endpoints>
