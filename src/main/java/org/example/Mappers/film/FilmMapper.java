@@ -2,13 +2,15 @@ package org.example.Mappers.film;
 
 import org.example.dtos.film.FilmDto;
 import org.example.presistance.entities.Film;
+import org.example.presistance.entities.Inventory;
 import org.mapstruct.*;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface FilmMapper {
-    @Mapping(target = "inventoryIds", expression = "java(inventoriesToInventoryIds(film.getInventories()))")
-    @Mapping(target = "filmCategoryLastUpdates", expression = "java(filmCategoriesToFilmCategoryLastUpdates(film.getFilmCategories()))")
-    @Mapping(source = "filmActorIds", target = "id")
+
     @Mapping(source = "originalLanguageId", target = "originalLanguage.id")
     @Mapping(source = "languageId", target = "language.id")
     Film toEntity(FilmDto filmDto);
@@ -19,4 +21,19 @@ public interface FilmMapper {
     @InheritConfiguration(name = "toEntity")
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     Film partialUpdate(FilmDto filmDto, @MappingTarget Film film);
+//    default List<Integer> inventoriesToInventoryIds(List<Inventory> inventories) {
+//        return inventories.stream()
+//                .map(Inventory::getId)
+//                .collect(Collectors.toList());
+//    }
+//
+//    default List<Inventory> inventoryIdsToInventories(List<Integer> inventoryIds) {
+//        return inventoryIds.stream()
+//                .map(id -> {
+//                    Inventory inventory = new Inventory();
+//                    inventory.setId(id);
+//                    return inventory;
+//                })
+//                .collect(Collectors.toList());
+//    }
 }

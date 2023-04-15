@@ -93,6 +93,9 @@ public class AddressService {
     }
 
     public void addAddress(AddressEditDto addressDto) {
+        LocalDate localDate = LocalDate.now();
+        ZoneId defaultZoneId = ZoneId.systemDefault();
+        addressDto.setLastUpdate(Date.from(localDate.atStartOfDay(defaultZoneId).toInstant()).toInstant());
         AddressEditMapper addressMapper = Mappers.getMapper(AddressEditMapper.class);
         Address address = addressMapper.toEntity(addressDto);
         addressDao.add(address);

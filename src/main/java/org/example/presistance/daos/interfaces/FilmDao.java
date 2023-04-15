@@ -14,7 +14,7 @@ public interface FilmDao {
 
     public Boolean CheckFilmInventory(int id);
 
-    public int getNumberOfFilmsInInventory(int id);
+    public Long getNumberOfFilmsInInventory(int id);
 
     public List<Store> getFilmStores(int id);
 

@@ -1,6 +1,7 @@
 package org.example.dtos.film;
 
 import org.example.presistance.entities.FilmActorId;
+import org.example.presistance.enums.Rate;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -22,17 +23,15 @@ public class FilmDto implements Serializable {
     private BigDecimal rentalRate;
     private Integer length;
     private BigDecimal replacementCost;
-    private String rating;
+    private Rate rating;
     private String specialFeatures;
     private Instant lastUpdate;
-    private Set<Integer> inventoryIds;
-    private Set<FilmActorId> filmActorIds;
-    private Set<Instant> filmCategoryLastUpdates;
+
 
     public FilmDto() {
     }
 
-    public FilmDto(Integer id, String title, String description, Integer releaseYear, Short languageId, Short originalLanguageId, Short rentalDuration, BigDecimal rentalRate, Integer length, BigDecimal replacementCost, String rating, String specialFeatures, Instant lastUpdate, Set<Integer> inventoryIds, Set<FilmActorId> filmActorIds, Set<Instant> filmCategoryLastUpdates) {
+    public FilmDto(Integer id, String title, String description, Integer releaseYear, Short languageId, Short originalLanguageId, Short rentalDuration, BigDecimal rentalRate, Integer length, BigDecimal replacementCost, Rate rating, String specialFeatures, Instant lastUpdate) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -46,9 +45,7 @@ public class FilmDto implements Serializable {
         this.rating = rating;
         this.specialFeatures = specialFeatures;
         this.lastUpdate = lastUpdate;
-        this.inventoryIds = inventoryIds;
-        this.filmActorIds = filmActorIds;
-        this.filmCategoryLastUpdates = filmCategoryLastUpdates;
+
     }
 
     public Integer getId() {
@@ -141,11 +138,11 @@ public class FilmDto implements Serializable {
         return this;
     }
 
-    public String getRating() {
+    public Rate getRating() {
         return rating;
     }
 
-    public FilmDto setRating(String rating) {
+    public FilmDto setRating(Rate rating) {
         this.rating = rating;
         return this;
     }
@@ -168,32 +165,10 @@ public class FilmDto implements Serializable {
         return this;
     }
 
-    public Set<Integer> getInventoryIds() {
-        return inventoryIds;
-    }
 
-    public FilmDto setInventoryIds(Set<Integer> inventoryIds) {
-        this.inventoryIds = inventoryIds;
-        return this;
-    }
 
-    public Set<FilmActorId> getFilmActorIds() {
-        return filmActorIds;
-    }
 
-    public FilmDto setFilmActorIds(Set<FilmActorId> filmActorIds) {
-        this.filmActorIds = filmActorIds;
-        return this;
-    }
 
-    public Set<Instant> getFilmCategoryLastUpdates() {
-        return filmCategoryLastUpdates;
-    }
-
-    public FilmDto setFilmCategoryLastUpdates(Set<Instant> filmCategoryLastUpdates) {
-        this.filmCategoryLastUpdates = filmCategoryLastUpdates;
-        return this;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -212,15 +187,13 @@ public class FilmDto implements Serializable {
                 Objects.equals(this.replacementCost, entity.replacementCost) &&
                 Objects.equals(this.rating, entity.rating) &&
                 Objects.equals(this.specialFeatures, entity.specialFeatures) &&
-                Objects.equals(this.lastUpdate, entity.lastUpdate) &&
-                Objects.equals(this.inventoryIds, entity.inventoryIds) &&
-                Objects.equals(this.filmActorIds, entity.filmActorIds) &&
-                Objects.equals(this.filmCategoryLastUpdates, entity.filmCategoryLastUpdates);
+                Objects.equals(this.lastUpdate, entity.lastUpdate) ;
+
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, description, releaseYear, languageId, originalLanguageId, rentalDuration, rentalRate, length, replacementCost, rating, specialFeatures, lastUpdate, inventoryIds, filmActorIds, filmCategoryLastUpdates);
+        return Objects.hash(id, title, description, releaseYear, languageId, originalLanguageId, rentalDuration, rentalRate, length, replacementCost, rating, specialFeatures, lastUpdate);
     }
 
     @Override
@@ -238,9 +211,6 @@ public class FilmDto implements Serializable {
                 "replacementCost = " + replacementCost + ", " +
                 "rating = " + rating + ", " +
                 "specialFeatures = " + specialFeatures + ", " +
-                "lastUpdate = " + lastUpdate + ", " +
-                "inventoryIds = " + inventoryIds + ", " +
-                "filmActorIds = " + filmActorIds + ", " +
-                "filmCategoryLastUpdates = " + filmCategoryLastUpdates + ")";
+                "lastUpdate = " + lastUpdate + ") " ;
     }
 }

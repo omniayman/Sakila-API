@@ -12,5 +12,9 @@
             implementation="org.example.webServices.Address"
             url-pattern="/ws/address"/>
 
+    <endpoint
+            name="FilmWebService"
+            implementation="org.example.webServices.Film"
+            url-pattern="/ws/film"/>
 
 </endpoints>

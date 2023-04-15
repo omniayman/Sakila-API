@@ -136,6 +136,16 @@ public class Address {
         this.customers = customers;
     }
 
+    public byte[] getLocation() {
+        return location;
+    }
+
+    public void setLocation(byte[] location) {
+        this.location = location;
+    }
+
+    @Column(name = "location", columnDefinition = "GEOMETRY(65535) not null")
+    private byte[] location;
 /*
     TODO [JPA Buddy] create field to map the 'location' column
      Available actions: Define target Java type | Uncomment as is | Remove column mapping
