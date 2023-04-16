@@ -1,10 +1,13 @@
 package org.example.presistance.entities;
 
 import jakarta.persistence.*;
+import org.example.presistance.converter.RateConverter;
+import org.example.presistance.enums.Rate;
 
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.LinkedHashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -45,8 +48,9 @@ public class Film {
     @Column(name = "replacement_cost", nullable = false, precision = 5, scale = 2)
     private BigDecimal replacementCost;
 
-    @Column(name = "rating", length = 5)
-    private String rating;
+    @Column(name = "rating")
+    @Convert(converter = RateConverter.class)
+    private Rate rating;
 
     @Column(name = "special_features", length = 54)
     private String specialFeatures;
@@ -143,11 +147,11 @@ public class Film {
         this.replacementCost = replacementCost;
     }
 
-    public String getRating() {
+    public Rate getRating() {
         return rating;
     }
 
-    public void setRating(String rating) {
+    public void setRating(Rate rating) {
         this.rating = rating;
     }
 
@@ -191,4 +195,16 @@ public class Film {
         this.filmCategories = filmCategories;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Film film = (Film) o;
+        return Objects.equals(id, film.id) && Objects.equals(title, film.title) && Objects.equals(description, film.description) && Objects.equals(releaseYear, film.releaseYear) && Objects.equals(language, film.language) && Objects.equals(originalLanguage, film.originalLanguage) && Objects.equals(rentalDuration, film.rentalDuration) && Objects.equals(rentalRate, film.rentalRate) && Objects.equals(length, film.length) && Objects.equals(replacementCost, film.replacementCost) && Objects.equals(rating, film.rating) && Objects.equals(specialFeatures, film.specialFeatures) && Objects.equals(lastUpdate, film.lastUpdate) && Objects.equals(inventories, film.inventories) && Objects.equals(filmActors, film.filmActors) && Objects.equals(filmCategories, film.filmCategories);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, description, releaseYear, language, originalLanguage, rentalDuration, rentalRate, length, replacementCost, rating, specialFeatures, lastUpdate, inventories, filmActors, filmCategories);
+    }
 }

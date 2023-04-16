@@ -1,4 +1,4 @@
-package org.example.Mappers;
+package org.example.Mappers.customer;
 
 import org.example.dtos.customer.CustomerDto;
 import org.example.presistance.entities.Customer;

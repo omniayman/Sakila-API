@@ -10,6 +10,7 @@ import java.util.Set;
 @Table(name = "staff")
 public class Staff {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "staff_id", columnDefinition = "TINYINT UNSIGNED not null")
     private Short id;
 

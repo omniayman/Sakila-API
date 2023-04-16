@@ -1,6 +1,10 @@
 package org.example.services;
 
-import org.example.Mappers.*;
+import org.example.Mappers.StaffMapper;
+import org.example.Mappers.StoreMapper;
+import org.example.Mappers.address.AddressEditMapper;
+import org.example.Mappers.address.AddressMapper;
+import org.example.Mappers.customer.CustomerMapper;
 import org.example.dtos.StaffDto;
 import org.example.dtos.StoreDto;
 import org.example.dtos.address.AddressDto;
@@ -89,6 +93,9 @@ public class AddressService {
     }
 
     public void addAddress(AddressEditDto addressDto) {
+        LocalDate localDate = LocalDate.now();
+        ZoneId defaultZoneId = ZoneId.systemDefault();
+        addressDto.setLastUpdate(Date.from(localDate.atStartOfDay(defaultZoneId).toInstant()).toInstant());
         AddressEditMapper addressMapper = Mappers.getMapper(AddressEditMapper.class);
         Address address = addressMapper.toEntity(addressDto);
         addressDao.add(address);
