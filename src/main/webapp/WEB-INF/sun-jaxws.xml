@@ -25,4 +25,9 @@
             implementation="org.example.webServices.Category"
             url-pattern="/ws/category"/>
 
+    <endpoint
+            name="StaffWebService"
+            implementation="org.example.webServices.Staff"
+            url-pattern="/ws/staff"/>
+
 </endpoints>
