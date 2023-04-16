@@ -20,5 +20,9 @@
             name="ActorWebService"
             implementation="org.example.webServices.Actor"
             url-pattern="/ws/actor"/>
+    <endpoint
+            name="CategoryWebService"
+            implementation="org.example.webServices.Category"
+            url-pattern="/ws/category"/>
 
 </endpoints>
