@@ -29,29 +29,28 @@ public class FilmDaoImpl extends Crud<Film, Integer> implements FilmDao {
 
     @Override
     public Language getFilmLanguage(int id) {
-        return  (Language) entityManager.createQuery(" from Actor a where a.language.id=?1").setParameter(1, id).getSingleResult();
+        return (Language) entityManager.createQuery(" from Actor a where a.language.id=?1").setParameter(1, id).getSingleResult();
 
 
     }
 
     @Override
-    public Boolean CheckFilmInventory(int id)
-    {
-        Long count =(Long) entityManager.createQuery("select count(*) from Inventory i where i.film.id=?1").
+    public Boolean CheckFilmInventory(int id) {
+        Long count = (Long) entityManager.createQuery("select count(*) from Inventory i where i.film.id=?1").
                 setParameter(1, id).getSingleResult();
         return count != 0;
     }
 
     @Override
     public Long getNumberOfFilmsInInventory(int id) {
-        Long count =(Long) entityManager.createQuery("select count(*) from Inventory i where i.film.id=?1").
+        Long count = (Long) entityManager.createQuery("select count(*) from Inventory i where i.film.id=?1").
                 setParameter(1, id).getSingleResult();
         return count;
     }
 
     @Override
     public List<Store> getFilmStores(int id) {
-        String query="select s from Store s  join Inventory i  where i.film.id=?1";
+        String query = "select s from Store s  join Inventory i  where i.film.id=?1";
         List<Store> stores = (List<Store>) entityManager.createQuery(query).
                 setParameter(1, id).getResultList();
         return stores;
@@ -60,15 +59,15 @@ public class FilmDaoImpl extends Crud<Film, Integer> implements FilmDao {
     @Override
     public Rate getFilmRate(int id) {
 
-        Rate rate =(Rate) entityManager.createQuery("select i.rating from Film i where i.id=?1").
+        Rate rate = (Rate) entityManager.createQuery("select i.rating from Film i where i.id=?1").
                 setParameter(1, id).getSingleResult();
         return rate;
     }
 
     @Override
     public List<Rental> getFilmRentals(int id) {
-        String query="select r from Rental r  join Inventory i  where i.film.id=?1";
-        List<Rental> rentals=(List<Rental>) entityManager.createQuery(query).
+        String query = "select r from Rental r  join Inventory i  where i.film.id=?1";
+        List<Rental> rentals = (List<Rental>) entityManager.createQuery(query).
                 setParameter(1, id).getResultList();
         return rentals;
     }
@@ -80,12 +79,11 @@ public class FilmDaoImpl extends Crud<Film, Integer> implements FilmDao {
         Language language = entityManager.find(Language.class, film.getLanguage().getId());
         film.setLanguage(language);
 
-        if(film.getOriginalLanguage().getId()!=null) {
+        if (film.getOriginalLanguage().getId() != null) {
 
             Language orginalLanguage = entityManager.find(Language.class, film.getOriginalLanguage().getId());
             film.setOriginalLanguage(orginalLanguage);
-        }
-        else
+        } else
             film.setOriginalLanguage(null);
         entityManager.getTransaction().begin();
         entityManager.persist(film);
@@ -99,12 +97,11 @@ public class FilmDaoImpl extends Crud<Film, Integer> implements FilmDao {
         Language language = entityManager.find(Language.class, editedFilm.getLanguage().getId());
         editedFilm.setLanguage(language);
 
-        if(editedFilm.getOriginalLanguage().getId()!=null) {
+        if (editedFilm.getOriginalLanguage().getId() != null) {
 
             Language orginalLanguage = entityManager.find(Language.class, editedFilm.getOriginalLanguage().getId());
             editedFilm.setOriginalLanguage(orginalLanguage);
-        }
-        else
+        } else
             editedFilm.setOriginalLanguage(null);
         entityManager.getTransaction().begin();
         entityManager.merge(editedFilm);

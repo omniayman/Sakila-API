@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface ActorDao {
     public List<Film> getFilmsByActorId(int id);
+
     public List<Actor> getActorByName(String name);
 
 }

@@ -29,5 +29,9 @@
             name="StaffWebService"
             implementation="org.example.webServices.Staff"
             url-pattern="/ws/staff"/>
+    <endpoint
+            name="StoreWebService"
+            implementation="org.example.webServices.Store"
+            url-pattern="/ws/store"/>
 
 </endpoints>

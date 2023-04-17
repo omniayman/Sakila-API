@@ -2,11 +2,7 @@ package org.example.Mappers.film;
 
 import org.example.dtos.film.FilmDto;
 import org.example.presistance.entities.Film;
-import org.example.presistance.entities.Inventory;
 import org.mapstruct.*;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface FilmMapper {

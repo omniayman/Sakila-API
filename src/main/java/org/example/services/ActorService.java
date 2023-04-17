@@ -1,15 +1,11 @@
 package org.example.services;
 
 import org.example.Mappers.actor.ActorMapper;
-import org.example.Mappers.address.AddressEditMapper;
 import org.example.Mappers.film.FilmMapper;
 import org.example.dtos.actor.ActorDto;
-import org.example.dtos.address.AddressEditDto;
 import org.example.dtos.film.FilmDto;
 import org.example.presistance.daos.impl.ActorDaoImpl;
-import org.example.presistance.daos.impl.FilmDaoImpl;
 import org.example.presistance.entities.Actor;
-import org.example.presistance.entities.Address;
 import org.example.presistance.entities.Film;
 import org.mapstruct.factory.Mappers;
 
@@ -27,7 +23,8 @@ public class ActorService {
         actorDao = new ActorDaoImpl();
         mapper = Mappers.getMapper(ActorMapper.class);
     }
-    public List<ActorDto> getAllActors(){
+
+    public List<ActorDto> getAllActors() {
         List<Actor> actors = actorDao.findAll();
         List<ActorDto> actorDtos = new ArrayList<>();
         for (Actor actor : actors) {
@@ -35,10 +32,12 @@ public class ActorService {
         }
         return actorDtos;
     }
-    public ActorDto getActorById(int id){
-        Actor actor = actorDao.findById(id,Actor.class);
+
+    public ActorDto getActorById(int id) {
+        Actor actor = actorDao.findById(id, Actor.class);
         return mapper.toDto(actor);
     }
+
     public void updateActor(ActorDto actorDto) {
 
         LocalDate localDate = LocalDate.now();
@@ -56,8 +55,9 @@ public class ActorService {
         Actor actor = mapper.toEntity(actorDto);
         actorDao.add(actor);
     }
+
     public List<FilmDto> getFilmsByActorId(int id) {
-        FilmMapper filmMapper=Mappers.getMapper(FilmMapper.class);
+        FilmMapper filmMapper = Mappers.getMapper(FilmMapper.class);
         List<Film> films = actorDao.getFilmsByActorId(id);
         List<FilmDto> filmDtos = new ArrayList<>();
         for (Film film : films) {
@@ -66,6 +66,7 @@ public class ActorService {
         return filmDtos;
 
     }
+
     public List<ActorDto> getActorsByName(String name) {
         List<Actor> actors = actorDao.getActorByName(name);
         List<ActorDto> actorDtos = new ArrayList<>();

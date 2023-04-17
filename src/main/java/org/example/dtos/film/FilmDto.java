@@ -1,13 +1,11 @@
 package org.example.dtos.film;
 
-import org.example.presistance.entities.FilmActorId;
 import org.example.presistance.enums.Rate;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.Objects;
-import java.util.Set;
 
 /**
  * A DTO for the {@link org.example.presistance.entities.Film} entity
@@ -166,10 +164,6 @@ public class FilmDto implements Serializable {
     }
 
 
-
-
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -187,7 +181,7 @@ public class FilmDto implements Serializable {
                 Objects.equals(this.replacementCost, entity.replacementCost) &&
                 Objects.equals(this.rating, entity.rating) &&
                 Objects.equals(this.specialFeatures, entity.specialFeatures) &&
-                Objects.equals(this.lastUpdate, entity.lastUpdate) ;
+                Objects.equals(this.lastUpdate, entity.lastUpdate);
 
     }
 
@@ -211,6 +205,6 @@ public class FilmDto implements Serializable {
                 "replacementCost = " + replacementCost + ", " +
                 "rating = " + rating + ", " +
                 "specialFeatures = " + specialFeatures + ", " +
-                "lastUpdate = " + lastUpdate + ") " ;
+                "lastUpdate = " + lastUpdate + ") ";
     }
 }

@@ -20,11 +20,11 @@ public abstract class Crud<T, ID> {
     public List<T> findAll() {
 
 
-            CriteriaBuilder builder = entityManager.getCriteriaBuilder();
-            CriteriaQuery<T> query = builder.createQuery(getEntityClass());
-            Root<T> root = query.from(getEntityClass());
-            query.select(root);
-            return entityManager.createQuery(query).getResultList();
+        CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<T> query = builder.createQuery(getEntityClass());
+        Root<T> root = query.from(getEntityClass());
+        query.select(root);
+        return entityManager.createQuery(query).getResultList();
     }
 
     public T findById(ID id, Class<T> entityClass) {
@@ -34,9 +34,14 @@ public abstract class Crud<T, ID> {
     }
 
     public void add(T entity) {
-        entityManager.getTransaction().begin();
+
+            entityManager.getTransaction().begin();
+            System.out.println("******");
+
+        System.out.println("-----");
         entityManager.persist(entity);
         entityManager.getTransaction().commit();
+
 
     }
 

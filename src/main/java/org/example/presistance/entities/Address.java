@@ -43,10 +43,12 @@ public class Address {
     private Set<Store> stores = new LinkedHashSet<>();
     @OneToMany(mappedBy = "address")
     private Set<Customer> customers = new LinkedHashSet<>();
+    @Column(name = "location", columnDefinition = "GEOMETRY(65535) not null")
+    private byte[] location;
+
 
     public Address() {
     }
-
 
     public Integer getId() {
         return id;
@@ -143,9 +145,6 @@ public class Address {
     public void setLocation(byte[] location) {
         this.location = location;
     }
-
-    @Column(name = "location", columnDefinition = "GEOMETRY(65535) not null")
-    private byte[] location;
 /*
     TODO [JPA Buddy] create field to map the 'location' column
      Available actions: Define target Java type | Uncomment as is | Remove column mapping

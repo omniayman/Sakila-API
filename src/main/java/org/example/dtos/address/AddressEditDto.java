@@ -18,19 +18,13 @@ public class AddressEditDto implements Serializable {
     private String postalCode;
     private String phone;
     private Instant lastUpdate;
-    private  byte[]location;
-    public byte[] getLocation() {
-        return location;
-    }
+    private byte[] location;
 
-    public void setLocation(byte[] location) {
-        this.location = location;
-    }
     public AddressEditDto() {
     }
 
     public AddressEditDto(Integer id, String address, String address2, String district, CityDto city, String postalCode, String phone, Instant lastUpdate,
-                          byte[]location) {
+                          byte[] location) {
         this.id = id;
         this.address = address;
         this.address2 = address2;
@@ -39,7 +33,15 @@ public class AddressEditDto implements Serializable {
         this.postalCode = postalCode;
         this.phone = phone;
         this.lastUpdate = lastUpdate;
-        this.location=location;
+        this.location = location;
+    }
+
+    public byte[] getLocation() {
+        return location;
+    }
+
+    public void setLocation(byte[] location) {
+        this.location = location;
     }
 
     public Integer getId() {
