@@ -21,7 +21,6 @@ import org.mapstruct.factory.Mappers;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class StoreService {
@@ -50,7 +49,7 @@ public class StoreService {
 
     public void updateStore(StoreEditDto storeDto) {
 
-        StoreEditMapper storeEditMapper=Mappers.getMapper(StoreEditMapper.class);
+        StoreEditMapper storeEditMapper = Mappers.getMapper(StoreEditMapper.class);
         LocalDate localDate = LocalDate.now();
         ZoneId defaultZoneId = ZoneId.systemDefault();
         //storeDto.setLastUpdate(Date.from(localDate.atStartOfDay(defaultZoneId).toInstant()).toInstant());
@@ -59,7 +58,7 @@ public class StoreService {
     }
 
     public void addStore(StoreEditDto storeDto) {
-        StoreEditMapper storeEditMapper=Mappers.getMapper(StoreEditMapper.class);
+        StoreEditMapper storeEditMapper = Mappers.getMapper(StoreEditMapper.class);
         LocalDate localDate = LocalDate.now();
         ZoneId defaultZoneId = ZoneId.systemDefault();
 

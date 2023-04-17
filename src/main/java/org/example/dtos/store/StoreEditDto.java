@@ -11,6 +11,17 @@ public class StoreEditDto implements Serializable {
     private Short id;
     private Short managerStaffId;
     private Integer addressId;
+    private Instant lastUpdate = Instant.now();
+
+    public StoreEditDto() {
+    }
+
+    public StoreEditDto(Short id, Short managerStaffId, Integer addressId, Instant lastUpdate) {
+        this.id = id;
+        this.managerStaffId = managerStaffId;
+        this.addressId = addressId;
+        this.lastUpdate = lastUpdate;
+    }
 
     public Instant getLastUpdate() {
         return lastUpdate;
@@ -18,17 +29,6 @@ public class StoreEditDto implements Serializable {
 
     public void setLastUpdate(Instant lastUpdate) {
         this.lastUpdate = lastUpdate;
-    }
-
-    private Instant lastUpdate=Instant.now();
-    public StoreEditDto() {
-    }
-
-    public StoreEditDto(Short id, Short managerStaffId, Integer addressId,Instant lastUpdate) {
-        this.id = id;
-        this.managerStaffId = managerStaffId;
-        this.addressId = addressId;
-        this.lastUpdate=lastUpdate;
     }
 
     public Short getId() {

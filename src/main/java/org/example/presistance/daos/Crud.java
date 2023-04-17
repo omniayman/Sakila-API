@@ -35,8 +35,8 @@ public abstract class Crud<T, ID> {
 
     public void add(T entity) {
 
-            entityManager.getTransaction().begin();
-            System.out.println("******");
+        entityManager.getTransaction().begin();
+        System.out.println("******");
 
         System.out.println("-----");
         entityManager.persist(entity);

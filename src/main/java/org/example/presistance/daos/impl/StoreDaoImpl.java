@@ -12,8 +12,6 @@ public class StoreDaoImpl extends Crud<Store, Integer> implements StoreDao {
     EntityManager entityManager = EntityManagerFactoryProvider.getInstance().createEntityManager();
 
 
-
-
     @Override
     public Address getStoreAddress(int id) {
         return (Address) entityManager.createQuery("select c.address from Store c where c.id=?1")
