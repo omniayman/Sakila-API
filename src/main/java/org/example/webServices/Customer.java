@@ -44,11 +44,6 @@ public class Customer {
         return customerService.getCustomerById(id);
     }
 
-    public void delete(int id) {
-        CustomerService customerService = new CustomerService();
-
-        customerService.deleteCustomer(id);
-    }
 
     public StoreDto getHomeStore(int id) {
         System.out.println(id);

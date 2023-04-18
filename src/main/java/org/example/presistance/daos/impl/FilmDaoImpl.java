@@ -1,7 +1,6 @@
 package org.example.presistance.daos.impl;
 
 import jakarta.persistence.EntityManager;
-import org.example.presistance.daos.Crud;
 import org.example.presistance.daos.interfaces.FilmDao;
 import org.example.presistance.entities.*;
 import org.example.presistance.enums.Rate;

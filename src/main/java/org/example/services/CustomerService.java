@@ -45,9 +45,6 @@ public class CustomerService {
         return mapper.toDto(customer);
     }
 
-    public void deleteCustomer(int id) {
-        customerDao.delete(id, Customer.class);
-    }
 
     public void updateCustomer(CustomerEditDto customerDto) {
 

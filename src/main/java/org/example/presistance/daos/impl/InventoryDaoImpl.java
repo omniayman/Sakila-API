@@ -2,7 +2,6 @@ package org.example.presistance.daos.impl;
 
 import jakarta.persistence.EntityManager;
 import org.example.presistance.EntityManagerFactoryProvider;
-import org.example.presistance.daos.Crud;
 import org.example.presistance.daos.interfaces.InventoryDao;
 import org.example.presistance.entities.Film;
 import org.example.presistance.entities.Inventory;

@@ -1,7 +1,5 @@
 package org.example.dtos.address;
 
-import org.example.dtos.CityDto;
-
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;

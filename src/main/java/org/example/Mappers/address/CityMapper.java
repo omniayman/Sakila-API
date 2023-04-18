@@ -1,6 +1,6 @@
-package org.example.Mappers;
+package org.example.Mappers.address;
 
-import org.example.dtos.CityDto;
+import org.example.dtos.address.CityDto;
 import org.example.presistance.entities.City;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
