@@ -3,15 +3,11 @@ package org.example.webServices;
 import jakarta.jws.WebService;
 import org.example.dtos.RentalDto;
 import org.example.dtos.StoreDto;
-import org.example.dtos.address.AddressDto;
 import org.example.dtos.film.FilmDto;
 import org.example.presistance.entities.Actor;
 import org.example.presistance.entities.Category;
 import org.example.presistance.entities.Language;
-import org.example.presistance.entities.Rental;
-import org.example.presistance.entities.Store;
 import org.example.presistance.enums.Rate;
-import org.example.services.AddressService;
 import org.example.services.FilmService;
 
 import java.util.List;
@@ -19,6 +15,7 @@ import java.util.List;
 @WebService
 public class Film {
     FilmService filmService = new FilmService();
+
     public List<FilmDto> getAll() {
         FilmService filmService = new FilmService();
         List<FilmDto> filmDtos = filmService.getAllFilms();
@@ -36,6 +33,7 @@ public class Film {
         FilmService filmService = new FilmService();
         filmService.add(film);
     }
+
     public void updateFilm(FilmDto film) {
         FilmService filmService = new FilmService();
         filmService.update(film);

@@ -1,14 +1,13 @@
 package org.example.presistance.daos.impl;
 
 import jakarta.persistence.EntityManager;
-import org.example.presistance.daos.Crud;
 import org.example.presistance.daos.interfaces.CategoryDao;
 import org.example.presistance.entities.Category;
 import org.example.presistance.entities.Film;
 
 import java.util.List;
 
-public class CategoryDaoImpl extends Crud<Category,Integer> implements CategoryDao {
+public class CategoryDaoImpl extends Crud<Category, Integer> implements CategoryDao {
     EntityManager entityManager;
 
     public CategoryDaoImpl() {
@@ -28,8 +27,8 @@ public class CategoryDaoImpl extends Crud<Category,Integer> implements CategoryD
 
     @Override
     public List<Category> searchCategoryByName(String name) {
-        return  (List<Category>) entityManager.createQuery("from Category a where a.name like ?1").
-                setParameter(1, "%"+name+"%").getResultList();
+        return (List<Category>) entityManager.createQuery("from Category a where a.name like ?1").
+                setParameter(1, "%" + name + "%").getResultList();
     }
 
     @Override

@@ -1,15 +1,13 @@
 package org.example.services;
 
-import org.example.Mappers.actor.ActorMapper;
 import org.example.Mappers.category.CategoryMapper;
 import org.example.Mappers.film.FilmMapper;
-import org.example.dtos.actor.ActorDto;
 import org.example.dtos.category.CategoryDto;
 import org.example.dtos.film.FilmDto;
 import org.example.presistance.daos.impl.CategoryDaoImpl;
-import org.example.presistance.entities.Actor;
 import org.example.presistance.entities.Category;
 import org.example.presistance.entities.Film;
+import org.example.presistance.exceptionHandler.InvalidDataException;
 import org.mapstruct.factory.Mappers;
 
 import java.time.LocalDate;
@@ -26,7 +24,8 @@ public class CategoryService {
         categoryDao = new CategoryDaoImpl();
         mapper = Mappers.getMapper(CategoryMapper.class);
     }
-    public List<CategoryDto> getAllCategories(){
+
+    public List<CategoryDto> getAllCategories() {
         List<Category> categories = categoryDao.findAll();
         List<CategoryDto> categoryDtos = new ArrayList<>();
         for (Category category : categories) {
@@ -34,10 +33,12 @@ public class CategoryService {
         }
         return categoryDtos;
     }
-    public CategoryDto getCategoryById(int id){
-        Category category = categoryDao.findById(id,Category.class);
+
+    public CategoryDto getCategoryById(int id) {
+        Category category = categoryDao.findById(id, Category.class);
         return mapper.toDto(category);
     }
+
     public void updateCategory(CategoryDto categoryDto) {
 
         LocalDate localDate = LocalDate.now();
@@ -47,7 +48,7 @@ public class CategoryService {
         categoryDao.update(category);
     }
 
-    public void addCategory(CategoryDto categoryDto) {
+    public void addCategory(CategoryDto categoryDto) throws InvalidDataException {
         LocalDate localDate = LocalDate.now();
         ZoneId defaultZoneId = ZoneId.systemDefault();
         categoryDto.setLastUpdate(Date.from(localDate.atStartOfDay(defaultZoneId).toInstant()).toInstant());
@@ -55,8 +56,9 @@ public class CategoryService {
         Category category = mapper.toEntity(categoryDto);
         categoryDao.add(category);
     }
+
     public List<FilmDto> getFilmsByCategoryId(int id) {
-        FilmMapper filmMapper=Mappers.getMapper(FilmMapper.class);
+        FilmMapper filmMapper = Mappers.getMapper(FilmMapper.class);
         List<Film> films = categoryDao.getFilmsInSpecificCategory(id);
         List<FilmDto> filmDtos = new ArrayList<>();
         for (Film film : films) {
@@ -65,6 +67,7 @@ public class CategoryService {
         return filmDtos;
 
     }
+
     public List<CategoryDto> getCategoriesByName(String name) {
         List<Category> categories = categoryDao.searchCategoryByName(name);
         List<CategoryDto> categoryDtos = new ArrayList<>();
@@ -73,6 +76,7 @@ public class CategoryService {
         }
         return categoryDtos;
     }
+
     public long getFilmsInCategory(int id) {
         return categoryDao.getNumberOfFilmsInSpecificCategory(id);
     }

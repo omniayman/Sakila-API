@@ -79,9 +79,6 @@ public class AddressService {
         return storeDtos;
     }
 
-    public void deleteAddress(int id) {
-        addressDao.delete(id, Address.class);
-    }
 
     public void updateAddress(AddressEditDto addressDto) {
         AddressEditMapper addressMapper = Mappers.getMapper(AddressEditMapper.class);

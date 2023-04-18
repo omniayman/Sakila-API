@@ -1,16 +1,13 @@
 package org.example.presistance.daos.impl;
 
 import jakarta.persistence.EntityManager;
-import org.example.presistance.daos.Crud;
 import org.example.presistance.daos.interfaces.ActorDao;
 import org.example.presistance.entities.Actor;
-import org.example.presistance.entities.Category;
-import org.example.presistance.entities.*;
-import org.example.presistance.entities.Language;
+import org.example.presistance.entities.Film;
 
 import java.util.List;
 
-public class ActorDaoImpl extends Crud<Actor,Integer> implements ActorDao {
+public class ActorDaoImpl extends Crud<Actor, Integer> implements ActorDao {
     EntityManager entityManager;
 
     public ActorDaoImpl() {
@@ -65,6 +62,6 @@ public class ActorDaoImpl extends Crud<Actor,Integer> implements ActorDao {
     @Override
     public List<Actor> getActorByName(String name) {
         return (List<Actor>) entityManager.createQuery("from Actor a where a.firstName like ?1  or a.lastName like ?1").
-                setParameter(1, "%"+name+"%").getResultList();
+                setParameter(1, "%" + name + "%").getResultList();
     }
 }

@@ -2,14 +2,10 @@ package org.example.services;
 
 import org.example.Mappers.RentalMapper;
 import org.example.Mappers.StoreMapper;
-import org.example.Mappers.customer.CustomerEditMapper;
-import org.example.Mappers.customer.CustomerMapper;
 import org.example.Mappers.film.FilmMapper;
 import org.example.dtos.RentalDto;
 import org.example.dtos.StoreDto;
-import org.example.dtos.customer.CustomerDto;
 import org.example.dtos.film.FilmDto;
-import org.example.presistance.daos.impl.CustomerDaoImpl;
 import org.example.presistance.daos.impl.FilmDaoImpl;
 import org.example.presistance.entities.*;
 import org.example.presistance.enums.Rate;
@@ -29,7 +25,8 @@ public class FilmService {
         filmDao = new FilmDaoImpl();
         mapper = Mappers.getMapper(FilmMapper.class);
     }
-    public List<FilmDto> getAllFilms(){
+
+    public List<FilmDto> getAllFilms() {
         List<Film> films = filmDao.findAll();
         List<FilmDto> filmDtos = new ArrayList<>();
         for (Film film : films) {
@@ -37,8 +34,9 @@ public class FilmService {
         }
         return filmDtos;
     }
-    public FilmDto getFilmById(int id){
-        Film film = filmDao.findById(id,Film.class);
+
+    public FilmDto getFilmById(int id) {
+        Film film = filmDao.findById(id, Film.class);
         return mapper.toDto(film);
     }
 
@@ -71,14 +69,14 @@ public class FilmService {
 
     public List<StoreDto> getFilmStores(int id) {
 
-        StoreMapper storeMapper=Mappers.getMapper(StoreMapper.class);
-        List<Store> stores=filmDao.getFilmStores(id);
-       List<StoreDto> storeDto=new ArrayList<>();
-        for (Store s: stores
-             ) {
+        StoreMapper storeMapper = Mappers.getMapper(StoreMapper.class);
+        List<Store> stores = filmDao.getFilmStores(id);
+        List<StoreDto> storeDto = new ArrayList<>();
+        for (Store s : stores
+        ) {
             storeDto.add(storeMapper.toDto(s));
         }
-        return  storeDto;
+        return storeDto;
     }
 
 
@@ -88,14 +86,14 @@ public class FilmService {
 
 
     public List<RentalDto> getFilmRentals(int id) {
-        RentalMapper rentalMapper=Mappers.getMapper(RentalMapper.class);
-        List<Rental> rentals=filmDao.getFilmRentals(id);
-        List<RentalDto> rentalDtos=new ArrayList<>();
-        for (Rental s: rentals
+        RentalMapper rentalMapper = Mappers.getMapper(RentalMapper.class);
+        List<Rental> rentals = filmDao.getFilmRentals(id);
+        List<RentalDto> rentalDtos = new ArrayList<>();
+        for (Rental s : rentals
         ) {
             rentalDtos.add(rentalMapper.toDto(s));
         }
-        return  rentalDtos;
+        return rentalDtos;
     }
 
     public void add(FilmDto filmDto) {
@@ -106,6 +104,7 @@ public class FilmService {
         Film film = mapper.toEntity(filmDto);
         filmDao.add(film);
     }
+
     public void update(FilmDto filmDto) {
 
         FilmMapper mapper = Mappers.getMapper(FilmMapper.class);

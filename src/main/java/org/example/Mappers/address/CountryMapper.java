@@ -1,6 +1,6 @@
-package org.example.Mappers;
+package org.example.Mappers.address;
 
-import org.example.dtos.CountryDto;
+import org.example.dtos.address.CountryDto;
 import org.example.presistance.entities.Country;
 import org.mapstruct.Mapper;
 

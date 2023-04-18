@@ -4,6 +4,7 @@ package org.example.presistance.entities;
 import jakarta.persistence.*;
 
 import java.time.Instant;
+import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -28,7 +29,8 @@ public class Rental {
     private Customer customer;
 
     @Column(name = "return_date")
-    private Instant returnDate;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date returnDate;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "staff_id", nullable = false)
@@ -72,11 +74,11 @@ public class Rental {
         this.customer = customer;
     }
 
-    public Instant getReturnDate() {
+    public Date getReturnDate() {
         return returnDate;
     }
 
-    public void setReturnDate(Instant returnDate) {
+    public void setReturnDate(Date returnDate) {
         this.returnDate = returnDate;
     }
 

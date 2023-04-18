@@ -5,16 +5,16 @@ import org.example.Mappers.RentalMapper;
 import org.example.Mappers.StoreMapper;
 import org.example.Mappers.address.AddressMapper;
 import org.example.Mappers.staff.StaffMapper;
-import org.example.Mappers.customer.CustomerEditMapper;
 import org.example.dtos.PaymentDto;
 import org.example.dtos.RentalDto;
 import org.example.dtos.Staff.StaffDto;
 import org.example.dtos.StoreDto;
 import org.example.dtos.address.AddressDto;
-import org.example.dtos.customer.CustomerDto;
-import org.example.dtos.customer.CustomerEditDto;
 import org.example.presistance.daos.impl.StaffDaoImpl;
-import org.example.presistance.entities.*;
+import org.example.presistance.entities.Payment;
+import org.example.presistance.entities.Rental;
+import org.example.presistance.entities.Staff;
+import org.example.presistance.exceptionHandler.InvalidDataException;
 import org.mapstruct.factory.Mappers;
 
 import java.time.LocalDate;
@@ -47,7 +47,6 @@ public class StaffService {
     }
 
 
-
     public void updateStaff(StaffDto staffDto) {
 
 
@@ -58,7 +57,7 @@ public class StaffService {
         staffDao.update(staff);
     }
 
-    public void addStaff(StaffDto staffDto) {
+    public void addStaff(StaffDto staffDto) throws InvalidDataException {
 
         LocalDate localDate = LocalDate.now();
         ZoneId defaultZoneId = ZoneId.systemDefault();
@@ -69,17 +68,17 @@ public class StaffService {
     }
 
     public StoreDto getStaffStore(int id) {
-        StoreMapper storeMapper =Mappers.getMapper(StoreMapper.class);
+        StoreMapper storeMapper = Mappers.getMapper(StoreMapper.class);
         return storeMapper.toDto(staffDao.getStaffStore(id));
     }
 
 
     public List<RentalDto> getStaffRentals(int id) {
-        RentalMapper rentalMapper=Mappers.getMapper(RentalMapper.class);
-        List<RentalDto> rentalDto=new ArrayList<>();
-        List<Rental> rentals=staffDao.getStaffRentals(id);
-        for (Rental r: rentals
-             ) {
+        RentalMapper rentalMapper = Mappers.getMapper(RentalMapper.class);
+        List<RentalDto> rentalDto = new ArrayList<>();
+        List<Rental> rentals = staffDao.getStaffRentals(id);
+        for (Rental r : rentals
+        ) {
             rentalDto.add(rentalMapper.toDto(r));
         }
         return rentalDto;
@@ -87,10 +86,10 @@ public class StaffService {
 
 
     public List<PaymentDto> getStaffPayments(int id) {
-        PaymentMapper paymentMapper=Mappers.getMapper(PaymentMapper.class);
-        List<PaymentDto> paymentDtos=new ArrayList<>();
-        List<Payment> payments=staffDao.getStaffPayments(id);
-        for (Payment p: payments
+        PaymentMapper paymentMapper = Mappers.getMapper(PaymentMapper.class);
+        List<PaymentDto> paymentDtos = new ArrayList<>();
+        List<Payment> payments = staffDao.getStaffPayments(id);
+        for (Payment p : payments
         ) {
             paymentDtos.add(paymentMapper.toDto(p));
         }
@@ -112,9 +111,9 @@ public class StaffService {
 
     public List<StaffDto> getStaffByName(String name) {
 
-        List<StaffDto> staffDtos=new ArrayList<>();
-        List<Staff> staffs=staffDao.getStaffByName(name);
-        for (Staff s: staffs
+        List<StaffDto> staffDtos = new ArrayList<>();
+        List<Staff> staffs = staffDao.getStaffByName(name);
+        for (Staff s : staffs
         ) {
             staffDtos.add(mapper.toDto(s));
         }
@@ -124,7 +123,7 @@ public class StaffService {
 
 
     public AddressDto getStaffAddress(int id) {
-        AddressMapper addressMapper=Mappers.getMapper(AddressMapper.class);
+        AddressMapper addressMapper = Mappers.getMapper(AddressMapper.class);
 
         return addressMapper.toDto(staffDao.getStaffAddress(id));
 

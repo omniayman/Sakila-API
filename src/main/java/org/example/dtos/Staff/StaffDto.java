@@ -76,8 +76,6 @@ public class StaffDto implements Serializable {
     }
 
 
-
-
     public byte[] getPicture() {
         return picture;
     }

@@ -8,9 +8,11 @@ public enum Rate {
     NC_17("NC-17");
 
     private String desc;
+
     Rate(String d) {
-        this.desc=d;
+        this.desc = d;
     }
+
     public String getDescription() {
         return desc;
     }
