@@ -7,6 +7,7 @@ import org.example.dtos.film.FilmDto;
 import org.example.presistance.daos.impl.CategoryDaoImpl;
 import org.example.presistance.entities.Category;
 import org.example.presistance.entities.Film;
+import org.example.presistance.exceptionHandler.InvalidDataException;
 import org.mapstruct.factory.Mappers;
 
 import java.time.LocalDate;
@@ -47,7 +48,7 @@ public class CategoryService {
         categoryDao.update(category);
     }
 
-    public void addCategory(CategoryDto categoryDto) {
+    public void addCategory(CategoryDto categoryDto) throws InvalidDataException {
         LocalDate localDate = LocalDate.now();
         ZoneId defaultZoneId = ZoneId.systemDefault();
         categoryDto.setLastUpdate(Date.from(localDate.atStartOfDay(defaultZoneId).toInstant()).toInstant());

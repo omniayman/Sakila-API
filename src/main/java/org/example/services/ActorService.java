@@ -7,6 +7,7 @@ import org.example.dtos.film.FilmDto;
 import org.example.presistance.daos.impl.ActorDaoImpl;
 import org.example.presistance.entities.Actor;
 import org.example.presistance.entities.Film;
+import org.example.presistance.exceptionHandler.InvalidDataException;
 import org.mapstruct.factory.Mappers;
 
 import java.time.LocalDate;
@@ -47,7 +48,7 @@ public class ActorService {
         actorDao.update(actor);
     }
 
-    public void addActor(ActorDto actorDto) {
+    public void addActor(ActorDto actorDto) throws InvalidDataException {
         LocalDate localDate = LocalDate.now();
         ZoneId defaultZoneId = ZoneId.systemDefault();
         actorDto.setLastUpdate(Date.from(localDate.atStartOfDay(defaultZoneId).toInstant()).toInstant());

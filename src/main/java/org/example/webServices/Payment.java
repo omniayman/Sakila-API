@@ -1,21 +1,14 @@
 package org.example.webServices;
 
 import jakarta.jws.WebService;
-import org.example.Mappers.RentalMapper;
-import org.example.Mappers.customer.CustomerMapper;
-import org.example.Mappers.staff.StaffMapper;
 import org.example.dtos.RentalDto;
 import org.example.dtos.Staff.StaffDto;
 import org.example.dtos.customer.CustomerDto;
 import org.example.dtos.payment.PaymentDto;
+import org.example.presistance.exceptionHandler.InvalidDataException;
 import org.example.services.PaymentService;
-import org.mapstruct.factory.Mappers;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @WebService
@@ -39,7 +32,7 @@ public class Payment {
         paymentService.updatePayment(paymentDto);
     }
 
-    public void addPayment(PaymentDto paymentDto) {
+    public void addPayment(PaymentDto paymentDto) throws InvalidDataException {
 
         paymentService.addPayment(paymentDto);
     }

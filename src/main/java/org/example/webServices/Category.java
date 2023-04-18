@@ -4,6 +4,7 @@ package org.example.webServices;
 import jakarta.jws.WebService;
 import org.example.dtos.category.CategoryDto;
 import org.example.dtos.film.FilmDto;
+import org.example.presistance.exceptionHandler.InvalidDataException;
 import org.example.services.CategoryService;
 
 import java.util.List;
@@ -25,7 +26,7 @@ public class Category {
         categoryService.updateCategory(categoryDto);
     }
 
-    public void addCategory(CategoryDto categoryDto) {
+    public void addCategory(CategoryDto categoryDto) throws InvalidDataException {
         categoryService.addCategory(categoryDto);
     }
 

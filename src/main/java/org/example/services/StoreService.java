@@ -16,6 +16,7 @@ import org.example.dtos.store.StoreDto;
 import org.example.dtos.store.StoreEditDto;
 import org.example.presistance.daos.impl.StoreDaoImpl;
 import org.example.presistance.entities.*;
+import org.example.presistance.exceptionHandler.InvalidDataException;
 import org.mapstruct.factory.Mappers;
 
 import java.time.LocalDate;
@@ -57,7 +58,7 @@ public class StoreService {
         storeDao.update(store);
     }
 
-    public void addStore(StoreEditDto storeDto) {
+    public void addStore(StoreEditDto storeDto) throws InvalidDataException {
         StoreEditMapper storeEditMapper = Mappers.getMapper(StoreEditMapper.class);
         LocalDate localDate = LocalDate.now();
         ZoneId defaultZoneId = ZoneId.systemDefault();

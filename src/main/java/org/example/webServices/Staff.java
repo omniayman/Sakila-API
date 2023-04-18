@@ -6,6 +6,7 @@ import org.example.dtos.PaymentDto;
 import org.example.dtos.RentalDto;
 import org.example.dtos.Staff.StaffDto;
 import org.example.dtos.address.AddressDto;
+import org.example.presistance.exceptionHandler.InvalidDataException;
 import org.example.services.StaffService;
 
 import java.util.List;
@@ -28,7 +29,7 @@ public class Staff {
         staffService.updateStaff(staffDto);
     }
 
-    public void addStaff(StaffDto staffDto) {
+    public void addStaff(StaffDto staffDto) throws InvalidDataException {
         staffService.addStaff(staffDto);
     }
 

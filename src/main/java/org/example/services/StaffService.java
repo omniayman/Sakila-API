@@ -14,6 +14,7 @@ import org.example.presistance.daos.impl.StaffDaoImpl;
 import org.example.presistance.entities.Payment;
 import org.example.presistance.entities.Rental;
 import org.example.presistance.entities.Staff;
+import org.example.presistance.exceptionHandler.InvalidDataException;
 import org.mapstruct.factory.Mappers;
 
 import java.time.LocalDate;
@@ -56,7 +57,7 @@ public class StaffService {
         staffDao.update(staff);
     }
 
-    public void addStaff(StaffDto staffDto) {
+    public void addStaff(StaffDto staffDto) throws InvalidDataException {
 
         LocalDate localDate = LocalDate.now();
         ZoneId defaultZoneId = ZoneId.systemDefault();

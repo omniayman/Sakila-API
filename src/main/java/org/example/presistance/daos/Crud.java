@@ -5,6 +5,7 @@ import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 import org.example.presistance.EntityManagerFactoryProvider;
+import org.example.presistance.exceptionHandler.InvalidDataException;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -33,7 +34,7 @@ public abstract class Crud<T, ID> {
         return entity;
     }
 
-    public void add(T entity) {
+    public void add(T entity) throws InvalidDataException {
 
         entityManager.getTransaction().begin();
         System.out.println("******");

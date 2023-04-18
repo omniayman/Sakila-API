@@ -4,17 +4,13 @@ import org.example.Mappers.RentalMapper;
 import org.example.Mappers.customer.CustomerMapper;
 import org.example.Mappers.payment.PaymentMapper;
 import org.example.Mappers.staff.StaffMapper;
-import org.example.Mappers.store.StoreEditMapper;
-import org.example.Mappers.store.StoreMapper;
 import org.example.dtos.RentalDto;
 import org.example.dtos.Staff.StaffDto;
 import org.example.dtos.customer.CustomerDto;
 import org.example.dtos.payment.PaymentDto;
-import org.example.dtos.store.StoreDto;
-import org.example.dtos.store.StoreEditDto;
 import org.example.presistance.daos.impl.PaymentDaoImpl;
-import org.example.presistance.daos.impl.StoreDaoImpl;
-import org.example.presistance.entities.*;
+import org.example.presistance.entities.Payment;
+import org.example.presistance.exceptionHandler.InvalidDataException;
 import org.mapstruct.factory.Mappers;
 
 import java.math.BigDecimal;
@@ -60,7 +56,7 @@ public class PaymentService {
         paymentDao.update(payment);
     }
 
-    public void addPayment(PaymentDto paymentDto) {
+    public void addPayment(PaymentDto paymentDto) throws InvalidDataException {
 
         LocalDate localDate = LocalDate.now();
         ZoneId defaultZoneId = ZoneId.systemDefault();

@@ -37,5 +37,9 @@
             name="PaymentWebService"
             implementation="org.example.webServices.Payment"
             url-pattern="/ws/payment"/>
+    <endpoint
+            name="RentalWebService"
+            implementation="org.example.webServices.Rental"
+            url-pattern="/ws/rental"/>
 
 </endpoints>

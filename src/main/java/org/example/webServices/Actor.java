@@ -3,6 +3,7 @@ package org.example.webServices;
 import jakarta.jws.WebService;
 import org.example.dtos.actor.ActorDto;
 import org.example.dtos.film.FilmDto;
+import org.example.presistance.exceptionHandler.InvalidDataException;
 import org.example.services.ActorService;
 
 import java.util.List;
@@ -24,7 +25,7 @@ public class Actor {
         actorService.updateActor(actorDto);
     }
 
-    public void addActor(ActorDto actorDto) {
+    public void addActor(ActorDto actorDto) throws InvalidDataException {
         actorService.addActor(actorDto);
     }
 

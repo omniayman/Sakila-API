@@ -4,8 +4,10 @@ import jakarta.persistence.EntityManager;
 import org.example.presistance.EntityManagerFactoryProvider;
 import org.example.presistance.daos.Crud;
 import org.example.presistance.daos.interfaces.PaymentDao;
-import org.example.presistance.daos.interfaces.StoreDao;
-import org.example.presistance.entities.*;
+import org.example.presistance.entities.Customer;
+import org.example.presistance.entities.Payment;
+import org.example.presistance.entities.Rental;
+import org.example.presistance.entities.Staff;
 
 import java.math.BigDecimal;
 

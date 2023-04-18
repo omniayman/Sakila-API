@@ -8,6 +8,7 @@ import org.example.dtos.customer.CustomerDto;
 import org.example.dtos.film.FilmDto;
 import org.example.dtos.store.StoreDto;
 import org.example.dtos.store.StoreEditDto;
+import org.example.presistance.exceptionHandler.InvalidDataException;
 import org.example.services.StoreService;
 
 import java.util.List;
@@ -33,7 +34,7 @@ public class Store {
         storeService.updateStore(storeDto);
     }
 
-    public void addStore(StoreEditDto storeDto) {
+    public void addStore(StoreEditDto storeDto) throws InvalidDataException {
 
         storeService.addStore(storeDto);
     }
