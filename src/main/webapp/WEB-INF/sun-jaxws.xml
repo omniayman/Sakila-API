@@ -41,5 +41,9 @@
             name="RentalWebService"
             implementation="org.example.webServices.Rental"
             url-pattern="/ws/rental"/>
+    <endpoint
+            name="InventoryWebService"
+            implementation="org.example.webServices.Inventory"
+            url-pattern="/ws/inventory"/>
 
 </endpoints>

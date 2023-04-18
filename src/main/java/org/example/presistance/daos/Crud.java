@@ -35,13 +35,18 @@ public abstract class Crud<T, ID> {
     }
 
     public void add(T entity) throws InvalidDataException {
+        try {
 
-        entityManager.getTransaction().begin();
-        System.out.println("******");
 
-        System.out.println("-----");
-        entityManager.persist(entity);
-        entityManager.getTransaction().commit();
+            entityManager.getTransaction().begin();
+            System.out.println("******");
+
+            System.out.println("-----");
+            entityManager.persist(entity);
+            entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            throw new InvalidDataException(" id  exists before");
+        }
 
 
     }
