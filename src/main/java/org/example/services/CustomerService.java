@@ -6,12 +6,12 @@ import org.example.Mappers.StoreMapper;
 import org.example.Mappers.address.AddressMapper;
 import org.example.Mappers.customer.CustomerEditMapper;
 import org.example.Mappers.customer.CustomerMapper;
-import org.example.dtos.PaymentDto;
-import org.example.dtos.RentalDto;
-import org.example.dtos.StoreDto;
+import org.example.dtos.store.StoreViewDto;
 import org.example.dtos.address.AddressDto;
 import org.example.dtos.customer.CustomerDto;
 import org.example.dtos.customer.CustomerEditDto;
+import org.example.dtos.payment.PaymentViewDto;
+import org.example.dtos.rental.RentalEditDto;
 import org.example.presistance.daos.impl.CustomerDaoImpl;
 import org.example.presistance.entities.*;
 import org.mapstruct.factory.Mappers;
@@ -66,7 +66,7 @@ public class CustomerService {
         customerDao.add(customer);
     }
 
-    public StoreDto getCustomerHomeStore(int id) {
+    public StoreViewDto getCustomerHomeStore(int id) {
         StoreMapper storeMapper = Mappers.getMapper(StoreMapper.class);
         Store store = customerDao.getCustomerHomeStore(id);
 
@@ -81,10 +81,10 @@ public class CustomerService {
         return addressMapper.toDto(address);
     }
 
-    public List<RentalDto> getCustomerRents(int id) {
+    public List<RentalEditDto> getCustomerRents(int id) {
         RentalMapper rentalMapper = Mappers.getMapper(RentalMapper.class);
         List<Rental> rentals = customerDao.getCustomerRentals(id);
-        List<RentalDto> rentalDtos = new ArrayList<>();
+        List<RentalEditDto> rentalDtos = new ArrayList<>();
         for (Rental r : rentals
         ) {
             rentalDtos.add(rentalMapper.toDto(r));
@@ -92,10 +92,10 @@ public class CustomerService {
         return rentalDtos;
     }
 
-    public List<PaymentDto> getCustomerPayments(int id) {
+    public List<PaymentViewDto> getCustomerPayments(int id) {
         PaymentMapper paymentMapper = Mappers.getMapper(PaymentMapper.class);
         List<Payment> Payments = customerDao.getCustomerPayments(id);
-        List<PaymentDto> paymentDtos = new ArrayList<>();
+        List<PaymentViewDto> paymentDtos = new ArrayList<>();
         for (Payment r : Payments
         ) {
             paymentDtos.add(paymentMapper.toDto(r));

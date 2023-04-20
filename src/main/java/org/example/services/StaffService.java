@@ -5,11 +5,11 @@ import org.example.Mappers.RentalMapper;
 import org.example.Mappers.StoreMapper;
 import org.example.Mappers.address.AddressMapper;
 import org.example.Mappers.staff.StaffMapper;
-import org.example.dtos.PaymentDto;
-import org.example.dtos.RentalDto;
 import org.example.dtos.Staff.StaffDto;
-import org.example.dtos.StoreDto;
+import org.example.dtos.store.StoreViewDto;
 import org.example.dtos.address.AddressDto;
+import org.example.dtos.payment.PaymentViewDto;
+import org.example.dtos.rental.RentalEditDto;
 import org.example.presistance.daos.impl.StaffDaoImpl;
 import org.example.presistance.entities.Payment;
 import org.example.presistance.entities.Rental;
@@ -67,15 +67,15 @@ public class StaffService {
         staffDao.add(staff);
     }
 
-    public StoreDto getStaffStore(int id) {
+    public StoreViewDto getStaffStore(int id) {
         StoreMapper storeMapper = Mappers.getMapper(StoreMapper.class);
         return storeMapper.toDto(staffDao.getStaffStore(id));
     }
 
 
-    public List<RentalDto> getStaffRentals(int id) {
+    public List<RentalEditDto> getStaffRentals(int id) {
         RentalMapper rentalMapper = Mappers.getMapper(RentalMapper.class);
-        List<RentalDto> rentalDto = new ArrayList<>();
+        List<RentalEditDto> rentalDto = new ArrayList<>();
         List<Rental> rentals = staffDao.getStaffRentals(id);
         for (Rental r : rentals
         ) {
@@ -85,9 +85,9 @@ public class StaffService {
     }
 
 
-    public List<PaymentDto> getStaffPayments(int id) {
+    public List<PaymentViewDto> getStaffPayments(int id) {
         PaymentMapper paymentMapper = Mappers.getMapper(PaymentMapper.class);
-        List<PaymentDto> paymentDtos = new ArrayList<>();
+        List<PaymentViewDto> paymentDtos = new ArrayList<>();
         List<Payment> payments = staffDao.getStaffPayments(id);
         for (Payment p : payments
         ) {

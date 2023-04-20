@@ -1,17 +1,17 @@
 package org.example.Mappers;
 
-import org.example.dtos.RentalDto;
+import org.example.dtos.rental.RentalEditDto;
 import org.example.presistance.entities.Rental;
 import org.mapstruct.*;
 
 @Mapper
 public interface RentalMapper {
-    Rental toEntity(RentalDto rentalDto);
+    Rental toEntity(RentalEditDto rentalDto);
 
-    RentalDto toDto(Rental rental);
+    RentalEditDto toDto(Rental rental);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    Rental partialUpdate(RentalDto rentalDto, @MappingTarget Rental rental);
+    Rental partialUpdate(RentalEditDto rentalDto, @MappingTarget Rental rental);
 
     @AfterMapping
     default void linkPayments(@MappingTarget Rental rental) {

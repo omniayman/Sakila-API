@@ -5,8 +5,8 @@ import org.example.Mappers.StoreMapper;
 import org.example.Mappers.address.AddressEditMapper;
 import org.example.Mappers.address.AddressMapper;
 import org.example.Mappers.customer.CustomerMapper;
-import org.example.dtos.StaffDto;
-import org.example.dtos.StoreDto;
+import org.example.dtos.Staff.StaffEditDto;
+import org.example.dtos.store.StoreViewDto;
 import org.example.dtos.address.AddressDto;
 import org.example.dtos.address.AddressEditDto;
 import org.example.dtos.customer.CustomerDto;
@@ -57,10 +57,10 @@ public class AddressService {
         return customerDtos;
     }
 
-    public List<StaffDto> getStaffByAddress(int id) {
+    public List<StaffEditDto> getStaffByAddress(int id) {
         StaffMapper staffMapper = Mappers.getMapper(StaffMapper.class);
         List<Staff> staffList = addressDao.getStaffByAddressId(id);
-        List<StaffDto> staffdtos = new ArrayList<>();
+        List<StaffEditDto> staffdtos = new ArrayList<>();
         for (Staff r : staffList
         ) {
             staffdtos.add(staffMapper.toDto(r));
@@ -68,10 +68,10 @@ public class AddressService {
         return staffdtos;
     }
 
-    public List<StoreDto> getStoreByAddress(int id) {
+    public List<StoreViewDto> getStoreByAddress(int id) {
         StoreMapper storeMapper = Mappers.getMapper(StoreMapper.class);
         List<Store> stores = addressDao.getStoreByAddressId(id);
-        List<StoreDto> storeDtos = new ArrayList<>();
+        List<StoreViewDto> storeDtos = new ArrayList<>();
         for (Store r : stores
         ) {
             storeDtos.add(storeMapper.toDto(r));

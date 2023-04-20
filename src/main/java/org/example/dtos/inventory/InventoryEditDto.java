@@ -1,5 +1,6 @@
-package org.example.dtos;
+package org.example.dtos.inventory;
 
+import org.example.dtos.payment.PaymentViewDto;
 import org.example.presistance.entities.Film;
 import org.example.presistance.entities.Inventory;
 import org.example.presistance.entities.Rental;
@@ -13,12 +14,12 @@ import java.util.Set;
 /**
  * A DTO for the {@link Inventory} entity
  */
-public class InventoryDto implements Serializable {
+public class InventoryEditDto implements Serializable {
     private final Integer id;
     private final Film film;
     private final Instant lastUpdate;
 
-    public InventoryDto(Integer id, Film film, Instant lastUpdate) {
+    public InventoryEditDto(Integer id, Film film, Instant lastUpdate) {
         this.id = id;
         this.film = film;
         this.lastUpdate = lastUpdate;
@@ -40,7 +41,7 @@ public class InventoryDto implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        InventoryDto entity = (InventoryDto) o;
+        InventoryEditDto entity = (InventoryEditDto) o;
         return Objects.equals(this.id, entity.id) &&
                 Objects.equals(this.film, entity.film) &&
                 Objects.equals(this.lastUpdate, entity.lastUpdate);
@@ -65,12 +66,12 @@ public class InventoryDto implements Serializable {
     public static class RentalDto implements Serializable {
         private final Integer id;
         private final Instant rentalDate;
-        private final InventoryDto inventory;
+        private final InventoryEditDto inventory;
         private final Instant returnDate;
         private final Instant lastUpdate;
-        private final Set<PaymentDto> payments;
+        private final Set<PaymentViewDto> payments;
 
-        public RentalDto(Integer id, Instant rentalDate, InventoryDto inventory, Instant returnDate, Instant lastUpdate, Set<PaymentDto> payments) {
+        public RentalDto(Integer id, Instant rentalDate, InventoryEditDto inventory, Instant returnDate, Instant lastUpdate, Set<PaymentViewDto> payments) {
             this.id = id;
             this.rentalDate = rentalDate;
             this.inventory = inventory;
@@ -87,7 +88,7 @@ public class InventoryDto implements Serializable {
             return rentalDate;
         }
 
-        public InventoryDto getInventory() {
+        public InventoryEditDto getInventory() {
             return inventory;
         }
 
@@ -99,7 +100,7 @@ public class InventoryDto implements Serializable {
             return lastUpdate;
         }
 
-        public Set<PaymentDto> getPayments() {
+        public Set<PaymentViewDto> getPayments() {
             return payments;
         }
 

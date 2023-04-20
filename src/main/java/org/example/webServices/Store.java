@@ -1,11 +1,11 @@
 package org.example.webServices;
 
 import jakarta.jws.WebService;
-import org.example.dtos.RentalDto;
 import org.example.dtos.Staff.StaffDto;
 import org.example.dtos.address.AddressDto;
 import org.example.dtos.customer.CustomerDto;
 import org.example.dtos.film.FilmDto;
+import org.example.dtos.rental.RentalEditDto;
 import org.example.dtos.store.StoreDto;
 import org.example.dtos.store.StoreEditDto;
 import org.example.presistance.exceptionHandler.InvalidDataException;
@@ -70,7 +70,7 @@ public class Store {
     }
 
 
-    public List<RentalDto> getStoreRentals(int id) {
+    public List<RentalEditDto> getStoreRentals(int id) {
 
         return storeService.getStoreRentals(id);
     }

@@ -3,9 +3,9 @@ package org.example.services;
 import org.example.Mappers.RentalMapper;
 import org.example.Mappers.StoreMapper;
 import org.example.Mappers.film.FilmMapper;
-import org.example.dtos.RentalDto;
-import org.example.dtos.StoreDto;
+import org.example.dtos.store.StoreViewDto;
 import org.example.dtos.film.FilmDto;
+import org.example.dtos.rental.RentalEditDto;
 import org.example.presistance.daos.impl.FilmDaoImpl;
 import org.example.presistance.entities.*;
 import org.example.presistance.enums.Rate;
@@ -67,11 +67,11 @@ public class FilmService {
     }
 
 
-    public List<StoreDto> getFilmStores(int id) {
+    public List<StoreViewDto> getFilmStores(int id) {
 
         StoreMapper storeMapper = Mappers.getMapper(StoreMapper.class);
         List<Store> stores = filmDao.getFilmStores(id);
-        List<StoreDto> storeDto = new ArrayList<>();
+        List<StoreViewDto> storeDto = new ArrayList<>();
         for (Store s : stores
         ) {
             storeDto.add(storeMapper.toDto(s));
@@ -85,10 +85,10 @@ public class FilmService {
     }
 
 
-    public List<RentalDto> getFilmRentals(int id) {
+    public List<RentalEditDto> getFilmRentals(int id) {
         RentalMapper rentalMapper = Mappers.getMapper(RentalMapper.class);
         List<Rental> rentals = filmDao.getFilmRentals(id);
-        List<RentalDto> rentalDtos = new ArrayList<>();
+        List<RentalEditDto> rentalDtos = new ArrayList<>();
         for (Rental s : rentals
         ) {
             rentalDtos.add(rentalMapper.toDto(s));

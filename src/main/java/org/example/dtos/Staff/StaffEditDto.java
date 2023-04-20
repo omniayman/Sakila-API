@@ -1,4 +1,4 @@
-package org.example.dtos;
+package org.example.dtos.Staff;
 
 import org.example.dtos.address.AddressDto;
 
@@ -9,7 +9,7 @@ import java.util.Objects;
 /**
  * A DTO for the {@link org.example.presistance.entities.Staff} entity
  */
-public class StaffDto implements Serializable {
+public class StaffEditDto implements Serializable {
     private Short id;
     private String firstName;
     private String lastName;
@@ -21,7 +21,7 @@ public class StaffDto implements Serializable {
     private String password;
     private Date lastUpdate;
 
-    public StaffDto(Short id, String firstName, String lastName, AddressDto address, byte[] picture, String email, Boolean active, String username, String password, Date lastUpdate) {
+    public StaffEditDto(Short id, String firstName, String lastName, AddressDto address, byte[] picture, String email, Boolean active, String username, String password, Date lastUpdate) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -34,7 +34,7 @@ public class StaffDto implements Serializable {
         this.lastUpdate = lastUpdate;
     }
 
-    public StaffDto() {
+    public StaffEditDto() {
     }
 
     public Short getId() {
@@ -121,7 +121,7 @@ public class StaffDto implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        StaffDto entity = (StaffDto) o;
+        StaffEditDto entity = (StaffEditDto) o;
         return Objects.equals(this.id, entity.id) &&
                 Objects.equals(this.firstName, entity.firstName) &&
                 Objects.equals(this.lastName, entity.lastName) &&

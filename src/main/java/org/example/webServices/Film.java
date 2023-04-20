@@ -1,9 +1,9 @@
 package org.example.webServices;
 
 import jakarta.jws.WebService;
-import org.example.dtos.RentalDto;
-import org.example.dtos.StoreDto;
+import org.example.dtos.store.StoreViewDto;
 import org.example.dtos.film.FilmDto;
+import org.example.dtos.rental.RentalEditDto;
 import org.example.presistance.entities.Actor;
 import org.example.presistance.entities.Category;
 import org.example.presistance.entities.Language;
@@ -64,7 +64,7 @@ public class Film {
     }
 
 
-    public List<StoreDto> getFilmStores(int id) {
+    public List<StoreViewDto> getFilmStores(int id) {
         return filmService.getFilmStores(id);
     }
 
@@ -74,7 +74,7 @@ public class Film {
     }
 
 
-    public List<RentalDto> getFilmRentals(int id) {
+    public List<RentalEditDto> getFilmRentals(int id) {
         return filmService.getFilmRentals(id);
     }
 }

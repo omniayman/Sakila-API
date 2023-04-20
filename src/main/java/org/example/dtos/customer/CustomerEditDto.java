@@ -1,7 +1,7 @@
 package org.example.dtos.customer;
 
 
-import org.example.dtos.StoreDto;
+import org.example.dtos.store.StoreViewDto;
 import org.example.dtos.address.AddressDto;
 import org.example.presistance.entities.Customer;
 
@@ -15,7 +15,7 @@ import java.util.Objects;
 
 public class CustomerEditDto implements Serializable {
     private Integer id;
-    private StoreDto store;
+    private StoreViewDto store;
     private String firstName;
     private String lastName;
     private String email;
@@ -25,7 +25,7 @@ public class CustomerEditDto implements Serializable {
     private Date lastUpdate;
 
 
-    public CustomerEditDto(Integer id, String firstName, String lastName, String email, Boolean active, AddressDto address, Date createDate, Date lastUpdate, StoreDto store) {
+    public CustomerEditDto(Integer id, String firstName, String lastName, String email, Boolean active, AddressDto address, Date createDate, Date lastUpdate, StoreViewDto store) {
         this.id = id;
         this.store = store;
         this.firstName = firstName;
@@ -49,11 +49,11 @@ public class CustomerEditDto implements Serializable {
         this.id = id;
     }
 
-    public StoreDto getStore() {
+    public StoreViewDto getStore() {
         return store;
     }
 
-    public void setStore(StoreDto store) {
+    public void setStore(StoreViewDto store) {
         this.store = store;
     }
 

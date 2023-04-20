@@ -1,5 +1,6 @@
-package org.example.dtos;
+package org.example.dtos.store;
 
+import org.example.dtos.Staff.StaffEditDto;
 import org.example.dtos.address.AddressDto;
 
 import java.io.Serializable;
@@ -9,20 +10,20 @@ import java.util.Objects;
 /**
  * A DTO for the {@link org.example.presistance.entities.Store} entity
  */
-public class StoreDto implements Serializable {
+public class StoreViewDto implements Serializable {
     private Short id;
-    private StaffDto managerStaff;
+    private StaffEditDto managerStaff;
     private AddressDto address;
     private Date lastUpdate;
 
-    public StoreDto(Short id, StaffDto managerStaff, AddressDto address, Date lastUpdate) {
+    public StoreViewDto(Short id, StaffEditDto managerStaff, AddressDto address, Date lastUpdate) {
         this.id = id;
         this.managerStaff = managerStaff;
         this.address = address;
         this.lastUpdate = lastUpdate;
     }
 
-    public StoreDto() {
+    public StoreViewDto() {
     }
 
     public Short getId() {
@@ -33,11 +34,11 @@ public class StoreDto implements Serializable {
         this.id = id;
     }
 
-    public StaffDto getManagerStaff() {
+    public StaffEditDto getManagerStaff() {
         return managerStaff;
     }
 
-    public void setManagerStaff(StaffDto managerStaff) {
+    public void setManagerStaff(StaffEditDto managerStaff) {
         this.managerStaff = managerStaff;
     }
 
@@ -61,7 +62,7 @@ public class StoreDto implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        StoreDto entity = (StoreDto) o;
+        StoreViewDto entity = (StoreViewDto) o;
         return Objects.equals(this.id, entity.id) &&
                 Objects.equals(this.managerStaff, entity.managerStaff) &&
                 Objects.equals(this.address, entity.address) &&

@@ -2,10 +2,10 @@ package org.example.webServices;
 
 
 import jakarta.jws.WebService;
-import org.example.dtos.PaymentDto;
-import org.example.dtos.RentalDto;
 import org.example.dtos.Staff.StaffDto;
 import org.example.dtos.address.AddressDto;
+import org.example.dtos.payment.PaymentViewDto;
+import org.example.dtos.rental.RentalEditDto;
 import org.example.presistance.exceptionHandler.InvalidDataException;
 import org.example.services.StaffService;
 
@@ -39,13 +39,13 @@ public class Staff {
 //    }
 
 
-    public List<RentalDto> getStaffRentals(int id) {
+    public List<RentalEditDto> getStaffRentals(int id) {
 
         return staffService.getStaffRentals(id);
     }
 
 
-    public List<PaymentDto> getStaffPayments(int id) {
+    public List<PaymentViewDto> getStaffPayments(int id) {
 
         return staffService.getStaffPayments(id);
     }

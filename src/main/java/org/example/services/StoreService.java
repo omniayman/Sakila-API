@@ -7,11 +7,11 @@ import org.example.Mappers.film.FilmMapper;
 import org.example.Mappers.staff.StaffMapper;
 import org.example.Mappers.store.StoreEditMapper;
 import org.example.Mappers.store.StoreMapper;
-import org.example.dtos.RentalDto;
 import org.example.dtos.Staff.StaffDto;
 import org.example.dtos.address.AddressDto;
 import org.example.dtos.customer.CustomerDto;
 import org.example.dtos.film.FilmDto;
+import org.example.dtos.rental.RentalEditDto;
 import org.example.dtos.store.StoreDto;
 import org.example.dtos.store.StoreEditDto;
 import org.example.presistance.daos.impl.StoreDaoImpl;
@@ -116,9 +116,9 @@ public class StoreService {
     }
 
 
-    public List<RentalDto> getStoreRentals(int id) {
+    public List<RentalEditDto> getStoreRentals(int id) {
         RentalMapper rentalMapper = Mappers.getMapper(RentalMapper.class);
-        List<RentalDto> rentalDto = new ArrayList<>();
+        List<RentalEditDto> rentalDto = new ArrayList<>();
         List<Rental> rentals = storeDao.getStoreRentals(id);
         for (Rental r : rentals
         ) {

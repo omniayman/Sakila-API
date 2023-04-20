@@ -1,12 +1,12 @@
 package org.example.webServices;
 
 import jakarta.jws.WebService;
-import org.example.dtos.PaymentDto;
-import org.example.dtos.RentalDto;
-import org.example.dtos.StoreDto;
+import org.example.dtos.store.StoreViewDto;
 import org.example.dtos.address.AddressDto;
 import org.example.dtos.customer.CustomerDto;
 import org.example.dtos.customer.CustomerEditDto;
+import org.example.dtos.payment.PaymentViewDto;
+import org.example.dtos.rental.RentalEditDto;
 import org.example.services.CustomerService;
 
 import java.util.List;
@@ -45,7 +45,7 @@ public class Customer {
     }
 
 
-    public StoreDto getHomeStore(int id) {
+    public StoreViewDto getHomeStore(int id) {
         System.out.println(id);
         CustomerService customerService = new CustomerService();
 
@@ -58,13 +58,13 @@ public class Customer {
         return customerService.getCustomerAddress(id);
     }
 
-    public List<RentalDto> getCustomerRents(int id) {
+    public List<RentalEditDto> getCustomerRents(int id) {
         CustomerService customerService = new CustomerService();
 
         return customerService.getCustomerRents(id);
     }
 
-    public List<PaymentDto> getCustomerPayments(int id) {
+    public List<PaymentViewDto> getCustomerPayments(int id) {
         CustomerService customerService = new CustomerService();
 
         return customerService.getCustomerPayments(id);

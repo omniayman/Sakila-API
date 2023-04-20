@@ -1,4 +1,4 @@
-package org.example.dtos;
+package org.example.dtos.rental;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -7,7 +7,7 @@ import java.util.Objects;
 /**
  * A DTO for the {@link org.example.presistance.entities.Rental} entity
  */
-public class RentalDto implements Serializable {
+public class RentalEditDto implements Serializable {
     private Integer id;
     private Date rentalDate;
     // private CustomerDto customer;
@@ -15,10 +15,10 @@ public class RentalDto implements Serializable {
     private Date lastUpdate;
     // private Set<PaymentDto> payments = new LinkedHashSet<>();
 
-    public RentalDto() {
+    public RentalEditDto() {
     }
 
-    public RentalDto(Integer id, Date rentalDate, Date returnDate, Date lastUpdate) {
+    public RentalEditDto(Integer id, Date rentalDate, Date returnDate, Date lastUpdate) {
         this.id = id;
         this.rentalDate = rentalDate;
         //  this.customer = customer;
@@ -31,7 +31,7 @@ public class RentalDto implements Serializable {
         return id;
     }
 
-    public RentalDto setId(Integer id) {
+    public RentalEditDto setId(Integer id) {
         this.id = id;
         return this;
     }
@@ -40,7 +40,7 @@ public class RentalDto implements Serializable {
         return rentalDate;
     }
 
-    public RentalDto setRentalDate(Date rentalDate) {
+    public RentalEditDto setRentalDate(Date rentalDate) {
         this.rentalDate = rentalDate;
         return this;
     }
@@ -58,7 +58,7 @@ public class RentalDto implements Serializable {
         return returnDate;
     }
 
-    public RentalDto setReturnDate(Date returnDate) {
+    public RentalEditDto setReturnDate(Date returnDate) {
         this.returnDate = returnDate;
         return this;
     }
@@ -67,7 +67,7 @@ public class RentalDto implements Serializable {
         return lastUpdate;
     }
 
-    public RentalDto setLastUpdate(Date lastUpdate) {
+    public RentalEditDto setLastUpdate(Date lastUpdate) {
         this.lastUpdate = lastUpdate;
         return this;
     }
@@ -85,7 +85,7 @@ public class RentalDto implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        RentalDto entity = (RentalDto) o;
+        RentalEditDto entity = (RentalEditDto) o;
         return Objects.equals(this.id, entity.id) &&
                 Objects.equals(this.rentalDate, entity.rentalDate) &&
                 // Objects.equals(this.customer, entity.customer) &&

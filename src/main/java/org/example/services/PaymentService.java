@@ -4,10 +4,10 @@ import org.example.Mappers.RentalMapper;
 import org.example.Mappers.customer.CustomerMapper;
 import org.example.Mappers.payment.PaymentMapper;
 import org.example.Mappers.staff.StaffMapper;
-import org.example.dtos.RentalDto;
 import org.example.dtos.Staff.StaffDto;
 import org.example.dtos.customer.CustomerDto;
 import org.example.dtos.payment.PaymentDto;
+import org.example.dtos.rental.RentalEditDto;
 import org.example.presistance.daos.impl.PaymentDaoImpl;
 import org.example.presistance.entities.Payment;
 import org.example.presistance.exceptionHandler.InvalidDataException;
@@ -72,7 +72,7 @@ public class PaymentService {
     }
 
 
-    public RentalDto getRentalByPayment(int id) {
+    public RentalEditDto getRentalByPayment(int id) {
         RentalMapper rentalMapper = Mappers.getMapper(RentalMapper.class);
         return rentalMapper.toDto(paymentDao.getRentalByPayment(id));
     }

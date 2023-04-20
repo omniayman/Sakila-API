@@ -1,13 +1,13 @@
 package org.example.Mappers;
 
-import org.example.dtos.StaffDto;
+import org.example.dtos.Staff.StaffEditDto;
 import org.example.presistance.entities.Staff;
 import org.mapstruct.Mapper;
 
 @Mapper
 public interface StaffMapper {
-    Staff toEntity(StaffDto staffDto);
+    Staff toEntity(StaffEditDto staffDto);
 
-    StaffDto toDto(Staff staff);
+    StaffEditDto toDto(Staff staff);
 
 }

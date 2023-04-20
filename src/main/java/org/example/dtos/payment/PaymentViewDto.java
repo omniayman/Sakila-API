@@ -1,4 +1,4 @@
-package org.example.dtos;
+package org.example.dtos.payment;
 
 import org.example.dtos.customer.CustomerDto;
 
@@ -11,7 +11,7 @@ import java.util.Objects;
 /**
  * A DTO for the {@link org.example.presistance.entities.Payment} entity
  */
-public class PaymentDto implements Serializable {
+public class PaymentViewDto implements Serializable {
     private Integer id;
 
     private CustomerDto customer;
@@ -20,7 +20,7 @@ public class PaymentDto implements Serializable {
     private Date paymentDate;
     private Date lastUpdate;
 
-    public PaymentDto() {
+    public PaymentViewDto() {
     }
 
     // public PaymentDto(Integer id,CustomerDto customer,  BigDecimal amount, Date paymentDate, Date lastUpdate) {
@@ -36,7 +36,7 @@ public class PaymentDto implements Serializable {
         return id;
     }
 
-    public PaymentDto setId(Integer id) {
+    public PaymentViewDto setId(Integer id) {
         this.id = id;
         return this;
     }
@@ -63,7 +63,7 @@ public class PaymentDto implements Serializable {
         return amount;
     }
 
-    public PaymentDto setAmount(BigDecimal amount) {
+    public PaymentViewDto setAmount(BigDecimal amount) {
         this.amount = amount;
         return this;
     }
@@ -72,7 +72,7 @@ public class PaymentDto implements Serializable {
         return paymentDate;
     }
 
-    public PaymentDto setPaymentDate(Date paymentDate) {
+    public PaymentViewDto setPaymentDate(Date paymentDate) {
         this.paymentDate = paymentDate;
         return this;
     }
@@ -81,7 +81,7 @@ public class PaymentDto implements Serializable {
         return lastUpdate;
     }
 
-    public PaymentDto setLastUpdate(Date lastUpdate) {
+    public PaymentViewDto setLastUpdate(Date lastUpdate) {
         this.lastUpdate = lastUpdate;
         return this;
     }
@@ -90,7 +90,7 @@ public class PaymentDto implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        PaymentDto entity = (PaymentDto) o;
+        PaymentViewDto entity = (PaymentViewDto) o;
         return Objects.equals(this.id, entity.id) &&
                 // Objects.equals(this.customer, entity.customer) &&
                 // Objects.equals(this.rental, entity.rental) &&

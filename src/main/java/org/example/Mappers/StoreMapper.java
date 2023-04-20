@@ -1,6 +1,6 @@
 package org.example.Mappers;
 
-import org.example.dtos.StoreDto;
+import org.example.dtos.store.StoreViewDto;
 import org.example.presistance.entities.Store;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
@@ -9,11 +9,11 @@ import org.mapstruct.NullValuePropertyMappingStrategy;
 
 @Mapper
 public interface StoreMapper {
-    Store toEntity(StoreDto storeDto);
+    Store toEntity(StoreViewDto storeDto);
 
-    StoreDto toDto(Store store);
+    StoreViewDto toDto(Store store);
 
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    Store partialUpdate(StoreDto storeDto, @MappingTarget Store store);
+    Store partialUpdate(StoreViewDto storeDto, @MappingTarget Store store);
 }

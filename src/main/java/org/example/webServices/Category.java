@@ -1,6 +1,8 @@
 package org.example.webServices;
 
 
+import jakarta.jws.WebMethod;
+import jakarta.jws.WebParam;
 import jakarta.jws.WebService;
 import org.example.dtos.category.CategoryDto;
 import org.example.dtos.film.FilmDto;
@@ -13,35 +15,42 @@ import java.util.List;
 public class Category {
     CategoryService categoryService = new CategoryService();
 
+    @WebMethod
     public List<CategoryDto> getAllCategories() {
         return categoryService.getAllCategories();
     }
 
-    public CategoryDto getCategoryById(int id) {
+    @WebMethod
+    public CategoryDto getCategoryById(@WebParam(name = "id") int id) {
         return categoryService.getCategoryById(id);
     }
 
-    public void updateCategory(CategoryDto categoryDto) {
+    @WebMethod
+    public void updateCategory(@WebParam(name = "category") CategoryDto categoryDto) {
 
         categoryService.updateCategory(categoryDto);
     }
 
-    public void addCategory(CategoryDto categoryDto) throws InvalidDataException {
+    @WebMethod
+    public void addCategory(@WebParam(name = "category") CategoryDto categoryDto) throws InvalidDataException {
         categoryService.addCategory(categoryDto);
     }
 
-    public List<FilmDto> getFilmsByCategoryId(int id) {
+    @WebMethod
+    public List<FilmDto> getFilmsByCategoryId(@WebParam(name = "id") int id) {
 
         return categoryService.getFilmsByCategoryId(id);
 
     }
 
-    public List<CategoryDto> getCategoryByName(String name) {
+    @WebMethod
+    public List<CategoryDto> getCategoryByName(@WebParam(name = "name") String name) {
 
         return categoryService.getCategoriesByName(name);
     }
 
-    public long getFilmsCountInCategory(int id) {
+    @WebMethod
+    public long getFilmsCountInCategory(@WebParam(name = "id") int id) {
         return categoryService.getFilmsInCategory(id);
     }
 }

@@ -1,10 +1,10 @@
 package org.example.webServices;
 
 import jakarta.jws.WebService;
-import org.example.dtos.RentalDto;
 import org.example.dtos.Staff.StaffDto;
 import org.example.dtos.customer.CustomerDto;
 import org.example.dtos.payment.PaymentDto;
+import org.example.dtos.rental.RentalEditDto;
 import org.example.presistance.exceptionHandler.InvalidDataException;
 import org.example.services.PaymentService;
 
@@ -42,7 +42,7 @@ public class Payment {
     }
 
 
-    public RentalDto getRentalByPayment(int id) {
+    public RentalEditDto getRentalByPayment(int id) {
         return paymentService.getRentalByPayment(id);
     }
 
