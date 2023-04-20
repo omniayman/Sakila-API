@@ -13,11 +13,11 @@ This is a SOAP API that allows users to interact with the Sakila database. This 
 - For more details about the database documentation link:
 + (https://dev.mysql.com/doc/sakila/en/)
 - clone this repository
-- Run the tomcat server
++ Run the tomcat server
 - change username and password and port number in pom.xml
-- change username and password in persistence.xml
++ change username and password in persistence.xml
 - run with (mvn clean tomcat7:deploy)
-- # Endpoints
+# Endpoints
 - /ws/customer: Customer web service
 - /ws/address: Address web service
 - /ws/film: Film web service
