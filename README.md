@@ -9,9 +9,9 @@ This is a SOAP API that allows users to interact with the Sakila database. This 
 - Hibernate
 # Getting started
 - Download Sakila database from this link:
-- (https://dev.mysql.com/doc/index-other.html)
+* (https://dev.mysql.com/doc/index-other.html)
 - For more details about the database documentation link:
-- (https://dev.mysql.com/doc/sakila/en/)
++ (https://dev.mysql.com/doc/sakila/en/)
 - clone this repository
 - Run the tomcat server
 - change username and password and port number in pom.xml
